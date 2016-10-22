@@ -31,6 +31,12 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <link href="circle.css" rel="stylesheet" />
+	
+	<script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
+    <script src="liquidFillGauge.js" language="JavaScript"></script>
+    <style>
+        <!--.liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }-->
+    </style>
 
 </head>
 
@@ -95,11 +101,33 @@
                                 <p class="category">Sinu</p>
                             </div>
                             <div class="content">
-                               <!-- <img src="img/default.jpg" alt="graafik" style="width:50%;height:auto;">-->
+                               
+								<svg id="fillgauge1" width="400" height="400" onclick="gauge1.update(NewValue());"></svg>
+								<svg id="fillgauge2" width="400" height="400" onclick="gauge2.update(NewValue());"></svg>
+								<script language="JavaScript">
+									var config1 = liquidFillGaugeDefaultSettings();
+									config1.circleColor = "#886EB1";
+									config1.textColor = "#30C3E6";
+									config1.waveTextColor = "#ccc";
+									config1.waveColor = "#886EB1";
+									config1.circleThickness = 0.02;
+									config1.circleFillGap = 0.02;
+									config1.textVertPosition = 0.5;
+									config1.waveAnimateTime = 1000;
+									config1.minValue = 0;
+									config1.maxValue = 1000;
 
-                                <div id="pilt">
-                                    <a href="#">proov</a>
-                                </div>
+									var gauge1= loadLiquidFillGauge("fillgauge1", 213, config1);
+									var gauge2= loadLiquidFillGauge("fillgauge2", 51, config1);
+									
+									function NewValue(){
+										if(Math.random() > .5){
+											return Math.round(Math.random()*1000).toFixed(0);
+										} else {
+											return (Math.random()*1000).toFixed(0);
+										}
+									}
+								</script>
                                
                            
                                 <div class="footer">
@@ -168,9 +196,6 @@
 	<!--  Charts Plugin -->
 	<script src="assets/js/chartist.min.js"></script>
 
-    <!--  Notifications Plugin    -->
-    <script src="assets/js/bootstrap-notify.js"></script>
-
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
@@ -179,22 +204,5 @@
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
-
-	<script type="text/javascript">
-    	$(document).ready(function(){
-
-        	demo.initChartist();
-
-        	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
-            },{
-                type: 'info',
-                timer: 4000
-            });
-
-    	});
-	</script>
 
 </html>
