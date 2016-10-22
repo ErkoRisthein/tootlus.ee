@@ -1515,7 +1515,7 @@ body > .navbar-collapse[data-color="purple"]:after {
 }
 
 .navbar-default {
-  background-color: #2FC3E6;
+  background-color: #FFFFFF;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .navbar-default .navbar-nav > li > a:not(.btn) {
