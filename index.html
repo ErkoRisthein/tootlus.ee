@@ -36,6 +36,17 @@
     <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
     <script src="liquidFillGauge.js" language="JavaScript"></script>
 	
+	<link href="nv.d3.min.css" rel="stylesheet" type="text/css">
+    <script src="nv.d3.min.js"></script>
+	
+	<style>
+
+		#chart svg {
+		  height: 400px;
+		}
+
+	</style>
+	
 </head>
 
 
@@ -109,6 +120,11 @@
                             </script>
 							
 							<div id="graphDiv"></div>
+							
+							<div id="chart">
+							  <svg></svg>
+							</div>
+
                         </div>
                     </div>
                 </div>
@@ -169,6 +185,56 @@
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="assets/js/light-bootstrap-dashboard.js"></script>
 
+	<script>
+		nv.addGraph(function() {
+		  var chart = nv.models.lineWithFocusChart()
+			.useInteractiveGuideline(true)
+			;
+			var data = function() {
+			  var sin = [],
+				  cos = [];
+
+			  for (var i = 0; i < 100; i++) {
+				sin.push({x: i, y: Math.sin(i/10)});
+				cos.push({x: i, y: .5 * Math.cos(i/10)});
+			  }
+
+			  return [
+				{
+				  values: sin,
+				  key: 'Sine Wave',
+				  color: '#ff7f0e'
+				},
+				{
+				  values: cos,
+				  key: 'Cosine Wave',
+				  color: '#2ca02c'
+				}
+			  ];
+			};
+
+		  chart.xAxis
+			.axisLabel('Time (ms)')
+			.tickFormat(d3.format(',r'))
+			;
+
+		  chart.yAxis
+			.axisLabel('Voltage (v)')
+			.tickFormat(d3.format('.02f'))
+			;
+
+		  d3.select('#chart svg')
+			.datum(data())
+			.transition().duration(500)
+			.call(chart)
+			;
+
+		  nv.utils.windowResize(chart.update);
+
+		  return chart;
+		});
+	</script>
+	
 	<script>
 		var width = 250,
 		height = 250,
