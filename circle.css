@@ -24,13 +24,12 @@
 #pilt {
     background-image: url(img/default.jpg);
     background-repeat: no-repeat;
-    background-position: 50% 50%;
     background-clip: padding-box;
 }
 #pilt a {
     display: block;
     height: 100%;
     text-align: center;
-    line-height: 100px;
+    line-height: 100;
     color: green;    
 }
