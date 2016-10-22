@@ -35,18 +35,16 @@
 
     <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
     <script src="liquidFillGauge.js" language="JavaScript"></script>
-	
-	<link href="nv.d3.min.css" rel="stylesheet" type="text/css">
+
+    <link href="nv.d3.min.css" rel="stylesheet" type="text/css">
     <script src="nv.d3.min.js"></script>
-	
-	<style>
 
-		#chart svg {
-		  height: 400px;
-		}
+    <style>
+        #chart svg {
+            height: 400px;
+        }
+    </style>
 
-	</style>
-	
 </head>
 
 
@@ -65,9 +63,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                 </button>
-               <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                viewBox="0 0 416.7*2 99.1*2" style="enable-background:new 0 0 416.7 99.1;" xml:space="preserve"
-                <a class="navbar-brand" href="/"> 
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 416.7*2 99.1*2" style="enable-background:new 0 0 416.7 99.1;" xml:space="preserve" <a class="navbar-brand" href="/"> 
                     <div style="height: 100%">    
                         <img src="img/logo.svg" alt="tootlus.ee"/></a>
                     </div>
@@ -79,58 +75,60 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                     <div class="col-xs-6">
-                           Foo
-       
-                        <div class="header">
-                            <h4 class="title">Palga kuju</h4>
-                            <p class="category">Sinu</p>
-                        </div>
-                                
-                       
-            
+                <div class="col-md-2 col-md-offset-4">
 
-                            <svg id="fillgauge1" width="300" height="300" onclick="gauge1.update(NewValue());"></svg>
-                         
-                         </div>                           
-                           
-                    <div class="col-xs-6">
-                           Foo
-       
-                        <div class="header">
-                            <h4 class="title">Palga kuju</h4>
-                            <p class="category">Sinu</p>
-                        
-                   <svg id="fillgauge2" width="400" height="400" onclick="gauge2.update(NewValue());"></svg>
-                   </div>
-            </div>
-            <div class="row-centered">
 
-                        <div class="header">
-                            <h4 class="title">Palga kuju</h4>
-                            <p class="category">Sinu</p>
-                        </div>
-            
-                          
-							
-
-							<div id="graphDiv"></div>
-             </div>
-			 <div class="row-centered">
-
-                        <div class="header">
-                            <h4 class="title">Palga kuju</h4>
-                            <p class="category">Sinu</p>
-                        </div>
-							<div id="chart">
-							  <svg></svg>
-							</div>
-
-                        </div>
+                    <div class="header">
+                        <h4 class="title">EESTI KESKMINE FOND</h4>
+                        >
                     </div>
+
+
+
+
+                    <svg id="fillgauge1" width="300" height="300" onclick="gauge1.update(NewValue());"></svg>
+                    <p class="category">teenustasud</p>
+                </div>
+
+                <div class="col-md-2 col-md-offset-200">
+
+
+                    <div class="header">
+                        <h4 class="title">INDEXIFOND</h4>
+
+
+                        <svg id="fillgauge2" width="400" height="400" onclick="gauge2.update(NewValue());"></svg>
+                        <p class="category">teenustasud</p>
+                    </div>
+                </div>
+
+                <div class="row-centered">
+
+                    <div class="header">
+                        <h4 class="title">MUUUUUUUUUU</h4>
+
+                    </div>
+
+
+
+
+                    <div id="graphDiv"></div>
+                </div>
+                <div class="row-centered">
+
+                    <div class="header">
+                        <h4 class="title">Palga kuju</h4>
+                        <p class="category">Sinu</p>
+                    </div>
+                    <div id="chart">
+                        <svg></svg>
+                    </div>
+
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 
 
@@ -186,159 +184,172 @@
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="assets/js/light-bootstrap-dashboard.js"></script>
 
- <script language="JavaScript">
-                                var config1 = liquidFillGaugeDefaultSettings();
-                                config1.circleColor = "#886EB1";
-                                config1.textColor = "#30C3E6";
-                                config1.waveTextColor = "#ccc";
-                                config1.waveColor = "#886EB1";
-                                config1.circleThickness = 5;
-                                config1.circleFillGap = 4;
-                                config1.textVertPosition = 0.5;
-                                config1.waveAnimateTime = 1000;
-                                config1.minValue = 0;
-                                config1.maxValue = 1000;
-                                var gauge1 = loadLiquidFillGauge("fillgauge1", 213, config1);
-               
-               
-                                var config2 = liquidFillGaugeDefaultSettings();
-                                config2.circleColor = "#886EB1";
-                                config2.textColor = "#30C3E6";
-                                config2.waveTextColor = "#ccc";
-                                config2.waveColor = "#886EB1";
-                                config2.circleThickness = 5;
-                                config2.circleFillGap = 4;
-                                config2.textVertPosition = 0.5;
-                                config2.waveAnimateTime = 1000;
-                                config2.minValue = 0;
-                                config2.maxValue = 1300;
-                                var gauge2 = loadLiquidFillGauge("fillgauge2", 51, config2);
-
-                                function NewValue() {
-                                    if (Math.random() > .5) {
-                                        return Math.round(Math.random() * 1000).toFixed(0);
-                                    } else {
-                                        return (Math.random() * 1000).toFixed(0);
-                                    }
-                                }
-                            </script>
+    <script language="JavaScript">
+        var config1 = liquidFillGaugeDefaultSettings();
+        config1.circleColor = "#886EB1";
+        config1.textColor = "#30C3E6";
+        config1.waveTextColor = "#ccc";
+        config1.waveColor = "#886EB1";
+        config1.circleThickness = 5;
+        config1.circleFillGap = 4;
+        config1.textVertPosition = 0.5;
+        config1.waveAnimateTime = 1000;
+        config1.minValue = 0;
+        config1.maxValue = 1000;
+        var gauge1 = loadLiquidFillGauge("fillgauge1", 213, config1);
 
 
-	<script>
-		nv.addGraph(function() {
-		  var chart = nv.models.lineWithFocusChart()
-			.useInteractiveGuideline(true)
-			;
-			var data = function() {
-			  var sin = [],
-				  cos = [];
+        var config2 = liquidFillGaugeDefaultSettings();
+        config2.circleColor = "#886EB1";
+        config2.textColor = "#30C3E6";
+        config2.waveTextColor = "#ccc";
+        config2.waveColor = "#886EB1";
+        config2.circleThickness = 5;
+        config2.circleFillGap = 4;
+        config2.textVertPosition = 0.5;
+        config2.waveAnimateTime = 1000;
+        config2.minValue = 0;
+        config2.maxValue = 1300;
+        var gauge2 = loadLiquidFillGauge("fillgauge2", 51, config2);
 
-			  for (var i = 0; i < 100; i++) {
-				sin.push({x: i, y: Math.sin(i/10)});
-				cos.push({x: i, y: .5 * Math.cos(i/10)});
-			  }
+        function NewValue() {
+            if (Math.random() > .5) {
+                return Math.round(Math.random() * 1000).toFixed(0);
+            } else {
+                return (Math.random() * 1000).toFixed(0);
+            }
+        }
+    </script>
 
-			  return [
-				{
-				  values: sin,
-				  key: 'Sine Wave',
-				  color: '#ff7f0e'
-				},
-				{
-				  values: cos,
-				  key: 'Cosine Wave',
-				  color: '#2ca02c'
-				}
-			  ];
-			};
 
-		  chart.xAxis
-			.axisLabel('Time (ms)')
-			.tickFormat(d3.format(',r'))
-			;
+    <script>
+        nv.addGraph(function() {
+            var chart = nv.models.lineWithFocusChart()
+                .useInteractiveGuideline(true);
+            var data = function() {
+                var sin = [],
+                    cos = [];
 
-		  chart.yAxis
-			.axisLabel('Voltage (v)')
-			.tickFormat(d3.format('.02f'))
-			;
+                for (var i = 0; i < 100; i++) {
+                    sin.push({
+                        x: i,
+                        y: Math.sin(i / 10)
+                    });
+                    cos.push({
+                        x: i,
+                        y: .5 * Math.cos(i / 10)
+                    });
+                }
 
-		  d3.select('#chart svg')
-			.datum(data())
-			.transition().duration(500)
-			.call(chart)
-			;
+                return [{
+                    values: sin,
+                    key: 'Sine Wave',
+                    color: '#ff7f0e'
+                }, {
+                    values: cos,
+                    key: 'Cosine Wave',
+                    color: '#2ca02c'
+                }];
+            };
 
-		  nv.utils.windowResize(chart.update);
+            chart.xAxis
+                .axisLabel('Time (ms)')
+                .tickFormat(d3.format(',r'));
 
-		  return chart;
-		});
-	</script>
-	
-	<script>
-		var width = 250,
-		height = 250,
-		data = [
-			{value: 500, name: "50%"}, 
-			{value: 250, name: "25%"},
-			{value: 700, name: "70%"},
-		],
-		rVals = [];
-					
-		// calculate r of each item so that area scales to value
-		function rCalculation() {
-			var i, 
-				r;
+            chart.yAxis
+                .axisLabel('Voltage (v)')
+                .tickFormat(d3.format('.02f'));
 
-			for (i = 0; i < data.length; i += 1) {
-				rVals.push(Math.sqrt(data[i].value / Math.PI)*2);
-			}
-		}
-			
-		function drawGraph(){
-			//create chart
-			var chart = d3.select('#graphDiv').append('svg')
-				.attr('width', width)
-				.attr('height', height);  
+            d3.select('#chart svg')
+                .datum(data())
+                .transition().duration(500)
+                .call(chart);
 
-			//create force layout
-			var force = d3.layout.force()
-				.nodes(data)
-				.size([width, height])
-				.linkDistance(10)
-				.charge(function(d, i) {return rVals[i]*(-5);})
-				.on("tick", tick)
-				.start();
-			
-			var node = chart.selectAll(".node")
-				.data(force.nodes())
-				.attr("class", "node")
-				.enter().append("g")
-				.call(force.drag);
-			
-			// blue circle
-			node.append("circle")
-				.attr("r", function(d, i) {return rVals[i];})
-				.style("fill", "#80dabe")                
-				.style("stroke", "#1a4876");   
-				
-			node.append("text").text(function(d) { return d.name }).attr({
-			  "alignment-baseline": "middle",
-			  "text-anchor": "middle"
-			});
-			
-					
-			
-			function tick() {
-				node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-			}
-				
-			
-		}
+            nv.utils.windowResize(chart.update);
 
-		rCalculation();
-		drawGraph();
-	</script>
+            return chart;
+        });
+    </script>
+
+    <script>
+        var width = 250,
+            height = 250,
+            data = [{
+                value: 500,
+                name: "50%"
+            }, {
+                value: 250,
+                name: "25%"
+            }, {
+                value: 700,
+                name: "70%"
+            }, ],
+            rVals = [];
+
+        // calculate r of each item so that area scales to value
+        function rCalculation() {
+            var i,
+                r;
+
+            for (i = 0; i < data.length; i += 1) {
+                rVals.push(Math.sqrt(data[i].value / Math.PI) * 2);
+            }
+        }
+
+        function drawGraph() {
+            //create chart
+            var chart = d3.select('#graphDiv').append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            //create force layout
+            var force = d3.layout.force()
+                .nodes(data)
+                .size([width, height])
+                .linkDistance(10)
+                .charge(function(d, i) {
+                    return rVals[i] * (-5);
+                })
+                .on("tick", tick)
+                .start();
+
+            var node = chart.selectAll(".node")
+                .data(force.nodes())
+                .attr("class", "node")
+                .enter().append("g")
+                .call(force.drag);
+
+            // blue circle
+            node.append("circle")
+                .attr("r", function(d, i) {
+                    return rVals[i];
+                })
+                .style("fill", "#80dabe")
+                .style("stroke", "#1a4876");
+
+            node.append("text").text(function(d) {
+                return d.name
+            }).attr({
+                "alignment-baseline": "middle",
+                "text-anchor": "middle"
+            });
+
+
+
+            function tick() {
+                node.attr("transform", function(d) {
+                    return "translate(" + d.x + "," + d.y + ")";
+                });
+            }
+
+
+        }
+
+        rCalculation();
+        drawGraph();
+    </script>
 
 
 </body>
+
 </html>
