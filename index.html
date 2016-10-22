@@ -44,7 +44,7 @@
     <style>
         #chart svg {
             height: 400px;
-            
+
 
         }
         .myButton {
@@ -98,48 +98,42 @@
     <nav class="navbar navbar-default navbar-fixed">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <img src="img/LOGOHEADER.svg" alt="tootlus.ee" height="128px" /></a>
             </div>
         </div>
     </nav>
 
-   
            <fieldset class="riba">
-                
-            <form name="registration_form" id='registration_form' class="form-inline">
+
+            <form name="registration_form" id='registration_form' class="form-inline calculator">
                     <div class="row">
                         <div class="form-group col-xs-2">
-                            <label for="firstname" class="sr-only"></label>
+                            <label for="age" class="sr-only"></label>
                              VANUS
-                            <input id="age" class="form-control input-group-lg reg_name" type="text" name="lastname"
+                            <input id="age" class="form-control input-group-lg reg_name" type="text" name="age"
                                    title="vanus"
                                    placeholder="18"/>
                         </div>
 
                         <div class="form-group col-xs-2">
-                            <label for="age" class="sr-only"></label>
+                            <label for="income" class="sr-only"></label>
                             PALK
-                            <input id="age" class="form-control input-group-lg reg_name" type="text" name="lastname"
-                                   title="vanus"
+                            <input id="income" class="form-control input-group-lg reg_name" type="text" name="income"
+                                   title="sissetulek"
                                    placeholder="1200"/>
                         </div>
-               
-                       
+
+
                         <div class="form-group col-xs-2">
-                            <label for="age" class="sr-only"></label>
+                            <label for="fund-value" class="sr-only"></label>
                             MINU FOND
-                            <input id="age" class="form-control input-group-lg reg_name" type="text" name="lastname"
-                                   title="vanus"
-                                   placeholder="LHV"/>
+                            <select name="fund" id="fund-value" class="form-control input-group-lg">
+                                <option value="lhv">LHV</option>
+                                <option value="tuleva">Tuleva</option>
+                            </select>
                         </div>
 
-                        
+
                          <div class="form-group col-xs-2">
                             <label for="age" class="sr-only"></label>
                          KONTOVÄÄRTUS
@@ -149,16 +143,14 @@
                         </div>
 
                          <div class="form-group col-xs-2">
+                           <button type="submit" name="calculate" class="myButton">Arvuta</button>
 
-                           <a class="myButton" href="#"> ARVUTA</a>
-                           
                         </div>
-                        </div>
+
                     </div>
-                   
             </form>
 
-           </fieldset>    
+           </fieldset>
 
 
         <div class="container-fluid">
@@ -180,22 +172,6 @@
                         <svg id="index-fund" width="400" height="400"></svg>
                         <p class="category">teenustasud</p>
                     </div>
-                </div>
-
-                <div class="col-md-4 col-md-offset-4">
-                    <form class="calculator">
-                        <input type="number" name="age" value="30">
-                        <input type="number" name="income" value="1200">
-
-                        <select name="fund">
-                            <option value="lhv">LHV</option>
-                            <option value="tuleva">Tuleva</option>
-                        </select>
-
-                        <input type="number" novalidate name="fund-value">
-
-                        <button type="submit" name="calculate">Arvuta pensioni väljamakse</button>
-                    </form>
                 </div>
             </div>
 
