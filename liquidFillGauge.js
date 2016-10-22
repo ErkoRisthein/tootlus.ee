@@ -58,8 +58,8 @@ function loadLiquidFillGauge(elementId, value, config) {
     var textFinalValue = parseFloatRev(value).toFixed(2);
     var textStartValue = config.valueCountUp?config.minValue:textFinalValue;
     var percentText = config.displayPercent?"€":"";
-    var circleThickness = config.circleThickness * radius;
-    var circleFillGap = config.circleFillGap * radius;
+    var circleThickness = config.circleThickness;
+    var circleFillGap = config.circleFillGap;
     var fillCircleMargin = circleThickness + circleFillGap;
     var fillCircleRadius = radius - fillCircleMargin;
     var waveHeight = fillCircleRadius*waveHeightScale(fillPercent*100);
