@@ -102,7 +102,7 @@
                             </div>
                             <div class="content">
                                
-								<svg id="fillgauge1" width="400" height="400" onclick="gauge1.update(NewValue());"></svg>
+								<svg id="fillgauge1" width="300" height="300" onclick="gauge1.update(NewValue());"></svg>
 								<svg id="fillgauge2" width="400" height="400" onclick="gauge2.update(NewValue());"></svg>
 								<script language="JavaScript">
 									var config1 = liquidFillGaugeDefaultSettings();
@@ -116,9 +116,20 @@
 									config1.waveAnimateTime = 1000;
 									config1.minValue = 0;
 									config1.maxValue = 1000;
-
 									var gauge1= loadLiquidFillGauge("fillgauge1", 213, config1);
-									var gauge2= loadLiquidFillGauge("fillgauge2", 51, config1);
+									
+									var config2 = liquidFillGaugeDefaultSettings();
+									config2.circleColor = "#886EB1";
+									config2.textColor = "#30C3E6";
+									config2.waveTextColor = "#ccc";
+									config2.waveColor = "#886EB1";
+									config2.circleThickness = 0.02;
+									config2.circleFillGap = 0.02;
+									config2.textVertPosition = 0.5;
+									config2.waveAnimateTime = 1000;
+									config2.minValue = 0;
+									config2.maxValue = 1300;
+									var gauge2= loadLiquidFillGauge("fillgauge2", 51, config2);
 									
 									function NewValue(){
 										if(Math.random() > .5){
