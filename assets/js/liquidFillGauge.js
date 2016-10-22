@@ -34,7 +34,7 @@ function loadLiquidFillGauge(elementId, value, config) {
 	function parseFloatRev(value) {
 		return config.maxValue - parseFloat(value);
 	}
-	
+
     if(config == null) config = liquidFillGaugeDefaultSettings();
 
     var gauge = d3.select("#" + elementId);
@@ -203,15 +203,84 @@ function loadLiquidFillGauge(elementId, value, config) {
             });
     }
 
-    function GaugeUpdater(){
-        this.update = function(value){
+    function GaugeUpdater () {
+        this.update = function (value, textValue) {
             var newFinalValue = parseFloatRev(value).toFixed(2);
-            var textRounderUpdater = function(value){ return Math.round(value); };
-            if(parseFloatRev(newFinalValue) != parseFloatRev(textRounderUpdater(newFinalValue))){
-                textRounderUpdater = function(value){ return parseFloatRev(value).toFixed(1); };
+
+            var textRounderUpdater = function (value) {
+                return Math.round(value);
+            };
+
+            if (parseFloatRev(newFinalValue) != parseFloatRev(textRounderUpdater(newFinalValue))) {
+                textRounderUpdater = function(value) {
+                    return parseFloatRev(value).toFixed(2);
+                };
             }
-            if(parseFloatRev(newFinalValue) != parseFloatRev(textRounderUpdater(newFinalValue))){
-                textRounderUpdater = function(value){ return parseFloatRev(value).toFixed(2); };
+
+            var textTween = function(){
+                var i = d3.interpolate(this.textContent, textValue.toFixed(2));
+                return function(t) { this.textContent = Math.round(i(t)) + percentText; }
+            };
+
+            text1.transition()
+                .duration(config.waveRiseTime)
+                .tween("text", textTween);
+            text2.transition()
+                .duration(config.waveRiseTime)
+                .tween("text", textTween);
+
+            var fillPercent = Math.max(config.minValue, Math.min(config.maxValue, value))/config.maxValue;
+            var waveHeight = fillCircleRadius*waveHeightScale(fillPercent*100);
+            var waveRiseScale = d3.scale.linear()
+                // The clipping area size is the height of the fill circle + the wave height, so we position the clip wave
+                // such that the it will overlap the fill circle at all when at 0%, and will totally cover the fill
+                // circle at 100%.
+                .range([(fillCircleMargin+fillCircleRadius*2+waveHeight),(fillCircleMargin-waveHeight)])
+                .domain([0,1]);
+            var newHeight = waveRiseScale(fillPercent);
+            var waveScaleX = d3.scale.linear().range([0,waveClipWidth]).domain([0,1]);
+            var waveScaleY = d3.scale.linear().range([0,waveHeight]).domain([0,1]);
+            var newClipArea;
+            if(config.waveHeightScaling){
+                newClipArea = d3.svg.area()
+                    .x(function(d) { return waveScaleX(d.x); } )
+                    .y0(function(d) { return waveScaleY(Math.sin(Math.PI*2*config.waveOffset*-1 + Math.PI*2*(1-config.waveCount) + d.y*2*Math.PI));} )
+                    .y1(function(d) { return (fillCircleRadius*2 + waveHeight); } );
+            } else {
+                newClipArea = clipArea;
+            }
+
+            var newWavePosition = config.waveAnimate?waveAnimateScale(1):0;
+            wave.transition()
+                .duration(0)
+                .transition()
+                .duration(config.waveAnimate?(config.waveAnimateTime * (1-wave.attr('T'))):(config.waveRiseTime))
+                .ease('linear')
+                .attr('d', newClipArea)
+                .attr('transform','translate('+newWavePosition+',0)')
+                .attr('T','1')
+                .each("end", function(){
+                    if(config.waveAnimate){
+                        wave.attr('transform','translate('+waveAnimateScale(0)+',0)');
+                        animateWave(config.waveAnimateTime);
+                    }
+                });
+            waveGroup.transition()
+                .duration(config.waveRiseTime)
+                .attr('transform','translate('+waveGroupXPosition+','+newHeight+')')
+        }
+
+        this._update = function (value) {
+            var newFinalValue = parseFloatRev(value).toFixed(2);
+
+            var textRounderUpdater = function (value) {
+                return Math.round(value);
+            };
+
+            if (parseFloatRev(newFinalValue) != parseFloatRev(textRounderUpdater(newFinalValue))) {
+                textRounderUpdater = function(value) {
+                    return parseFloatRev(value).toFixed(2);
+                };
             }
 
             var textTween = function(){
