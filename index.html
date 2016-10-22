@@ -67,14 +67,15 @@
 
     <div class="content">
         <div class="container-fluid">
-            <div class="row">
-                <div class="center">
-                    <div class="card">
+            <div class="row-centered">
+
                         <div class="header">
                             <h4 class="title">Palga kuju</h4>
                             <p class="category">Sinu</p>
                         </div>
-                        <div class="content">
+            
+                       
+            
 
                             <svg id="fillgauge1" width="300" height="300" onclick="gauge1.update(NewValue());"></svg>
                             <svg id="fillgauge2" width="400" height="400" onclick="gauge2.update(NewValue());"></svg>
@@ -91,7 +92,8 @@
                                 config1.minValue = 0;
                                 config1.maxValue = 1000;
                                 var gauge1 = loadLiquidFillGauge("fillgauge1", 213, config1);
-
+               
+               
                                 var config2 = liquidFillGaugeDefaultSettings();
                                 config2.circleColor = "#886EB1";
                                 config2.textColor = "#30C3E6";
@@ -114,10 +116,10 @@
                                 }
                             </script>
 							
-							<div id="graphDiv"></div>
-                        </div>
-                    </div>
-                </div>
+							
+                <div id="graphDiv"></div>
+                       
+                
             </div>
         </div>
     </div>

@@ -80,7 +80,7 @@ h4, .h4 {
 h5, .h5 {
   font-size: 16px;
   margin-bottom: 15px;
-}
+}rap
 
 h6, .h6 {
   font-size: 14px;
@@ -106,6 +106,10 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 h1 .subtitle {
   display: block;
   margin: 0 0 30px;
+}
+.row-centered {
+    display: flex;
+    justify-content: space-between;
 }
 
 .text-muted {
@@ -246,7 +250,7 @@ input:focus {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .sidebar .logo p {
-  float: left;
+  float: center;
   font-size: 20px;
   margin: 10px 10px;
   color: #FFFFFF;
@@ -461,6 +465,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   min-height: 100%;
 }
 .main-panel > .content {
+
   padding: 30px 15px;
   min-height: calc(100% - 123px);
 }
@@ -468,7 +473,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   border-top: 1px solid #e7e7e7;
 }
 .main-panel .navbar {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 .sidebar,
@@ -968,7 +973,8 @@ body > .navbar-collapse[data-color="purple"]:after {
   z-index: 3;
 }
 .navbar:not(.navbar-transparent) .alert {
-  top: 70px;
+  top: 10px;
+  bottom: 10px;
 }
 .alert span[data-notify="icon"] {
   font-size: 30px;
@@ -1004,6 +1010,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   max-width: 89%;
 }
 .alert[data-notify="container"] {
+
   padding: 10px 10px 10px 20px;
   border-radius: 4px;
 }
