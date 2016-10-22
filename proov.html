@@ -1,0 +1,25 @@
+<svg version="1.1" id="underground" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 960 560" enable-background="new 0 0 960 560" preserveAspectRatio="xMinYMin meet">
+	 
+	<style>
+svg * {
+	transition: all .1s ease-out;
+}
+@media all and (max-width: 800px) {
+	#outer-circle { fill: #1A1A1A; }
+	#inner-circle, #underground-bg { stroke-width: 11; stroke:#1A1A1A; }
+	#red-circle   { stroke-width: 111; fill="#CE0202"  }
+	#underground-text { stroke-width:0; } 	
+}
+@media all and (max-width: 600px) {
+	#outer-circle  	{ fill: #000000; }
+	#inner-circle, #underground-bg { stroke: #000000; stroke-width:5;  }
+	#red-circle   	{ stroke-width: 115; fill="#CE0202"  }
+	#underground-text 	{ opacity: 0; }
+}
+@media all and (max-width: 400px) {
+	#outer-circle,#inner-circle   	{ opacity:0; }
+	#underground-bg { stroke: #001384; stroke-width:5;  }
+	#underground-text 	{ opacity: 0; }
+}
+	</style>
