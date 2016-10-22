@@ -214,6 +214,7 @@
                                 config2.maxValue = 1300;
                                 var gauge2 = loadLiquidFillGauge("fillgauge2", 51, config2);
 
+								// remove before final pitch
                                 function NewValue() {
                                     if (Math.random() > .5) {
                                         return Math.round(Math.random() * 1000).toFixed(0);
@@ -278,9 +279,9 @@
 		var width = 250,
 		height = 250,
 		data = [
-			{value: 500, name: "50%"}, 
-			{value: 250, name: "25%"},
-			{value: 700, name: "70%"},
+			{value: 500, name: "600€", fill: "#68c59f", stroke: "#000"}, 
+			{value: 250, name: "50€", fill: "#9064b2", stroke: "#000"},
+			{value: 700, name: "4%", fill: "#2fc3e6", stroke: "#000"},
 		],
 		rVals = [];
 					
@@ -318,8 +319,8 @@
 			// blue circle
 			node.append("circle")
 				.attr("r", function(d, i) {return rVals[i];})
-				.style("fill", "#80dabe")                
-				.style("stroke", "#1a4876");   
+				.style("fill", function(d) {return d.fill;})                
+				.style("stroke", function(d) {return d.stroke;});   
 				
 			node.append("text").text(function(d) { return d.name }).attr({
 			  "alignment-baseline": "middle",
@@ -338,7 +339,6 @@
 		rCalculation();
 		drawGraph();
 	</script>
-
 
 </body>
 </html>
