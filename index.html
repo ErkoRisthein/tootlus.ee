@@ -34,7 +34,7 @@
 	
 	<script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
     <script src="liquidFillGauge.js" language="JavaScript"></script>
-
+	
 </head>
 
 
@@ -137,6 +137,7 @@
 									}
 								</script>
                                
+							   <div id="graphDiv"></div>
                            
                                 <div class="footer">
                                     <div class="legend">
@@ -148,6 +149,7 @@
                                     </div>
                                 </div>
                             </div>
+							
                         </div>
                     </div>
                    
@@ -210,7 +212,69 @@
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="assets/js/light-bootstrap-dashboard.js"></script>
 
-	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="assets/js/demo.js"></script>
+	<script>
+		var width = 450,
+		height = 450,
+		data = [
+			{value: 500, pctFull: 0.20, name: "20%"}, 
+			{value: 250, pctFull: 0.75, name: "75%"},
+			{value: 700, pctFull: 0.50, name: "50%"},        
+		],
+		rVals = [];
+					
+		// calculate r of each item so that area scales to value
+		function rCalculation() {
+			var i, 
+				r;
+
+			for (i = 0; i < data.length; i += 1) {
+				rVals.push(Math.sqrt(data[i].value / Math.PI)*2);
+			}
+		}
+			
+		function drawGraph(){
+			//create chart
+			var chart = d3.select('#graphDiv').append('svg')
+				.attr('width', width)
+				.attr('height', height);  
+
+			//create force layout
+			var force = d3.layout.force()
+				.nodes(data)
+				.size([width, height])
+				.linkDistance(10)
+				.charge(function(d, i) {return rVals[i]*(-5);})
+				.on("tick", tick)
+				.start();
+			
+			var node = chart.selectAll(".node")
+				.data(force.nodes())
+				.attr("class", "node")
+				.enter().append("g")
+				.call(force.drag);
+			
+			// blue circle
+			node.append("circle")
+				.attr("r", function(d, i) {return rVals[i];})
+				.style("fill", "#80dabe")                
+				.style("stroke", "#1a4876");   
+				
+			node.append("text").text(function(d) { return d.name }).attr({
+			  "alignment-baseline": "middle",
+			  "text-anchor": "middle"
+			});
+			
+					
+			
+			function tick() {
+				node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+			}
+				
+			
+		}
+
+		rCalculation();
+		drawGraph();
+	</script>
 
 </html>
