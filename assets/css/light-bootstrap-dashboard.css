@@ -109,7 +109,7 @@ h1 .subtitle {
 }
 .row-centered {
     display: flex;
-    justify-content: space-between;
+    
 }
 
 .text-muted {

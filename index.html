@@ -78,6 +78,32 @@
 
     <div class="content">
         <div class="container-fluid">
+            <div class="row">
+                     <div class="col-xs-6">
+                           Foo
+       
+                        <div class="header">
+                            <h4 class="title">Palga kuju</h4>
+                            <p class="category">Sinu</p>
+                        </div>
+                                
+                       
+            
+
+                            <svg id="fillgauge1" width="300" height="300" onclick="gauge1.update(NewValue());"></svg>
+                         
+                         </div>                           
+                           
+                    <div class="col-xs-6">
+                           Foo
+       
+                        <div class="header">
+                            <h4 class="title">Palga kuju</h4>
+                            <p class="category">Sinu</p>
+                        
+                   <svg id="fillgauge2" width="400" height="400" onclick="gauge2.update(NewValue());"></svg>
+                   </div>
+            </div>
             <div class="row-centered">
 
                         <div class="header">
@@ -85,56 +111,17 @@
                             <p class="category">Sinu</p>
                         </div>
             
-                       
-            
-
-                            <svg id="fillgauge1" width="300" height="300" onclick="gauge1.update(NewValue());"></svg>
-                            <svg id="fillgauge2" width="400" height="400" onclick="gauge2.update(NewValue());"></svg>
-                            <script language="JavaScript">
-                                var config1 = liquidFillGaugeDefaultSettings();
-                                config1.circleColor = "#886EB1";
-                                config1.textColor = "#30C3E6";
-                                config1.waveTextColor = "#ccc";
-                                config1.waveColor = "#886EB1";
-                                config1.circleThickness = 5;
-                                config1.circleFillGap = 4;
-                                config1.textVertPosition = 0.5;
-                                config1.waveAnimateTime = 1000;
-                                config1.minValue = 0;
-                                config1.maxValue = 1000;
-                                var gauge1 = loadLiquidFillGauge("fillgauge1", 213, config1);
-               
-               
-                                var config2 = liquidFillGaugeDefaultSettings();
-                                config2.circleColor = "#886EB1";
-                                config2.textColor = "#30C3E6";
-                                config2.waveTextColor = "#ccc";
-                                config2.waveColor = "#886EB1";
-                                config2.circleThickness = 5;
-                                config2.circleFillGap = 4;
-                                config2.textVertPosition = 0.5;
-                                config2.waveAnimateTime = 1000;
-                                config2.minValue = 0;
-                                config2.maxValue = 1300;
-                                var gauge2 = loadLiquidFillGauge("fillgauge2", 51, config2);
-
-                                function NewValue() {
-                                    if (Math.random() > .5) {
-                                        return Math.round(Math.random() * 1000).toFixed(0);
-                                    } else {
-                                        return (Math.random() * 1000).toFixed(0);
-                                    }
-                                }
-                            </script>
+                          
 							
-<<<<<<< HEAD
-							
-                <div id="graphDiv"></div>
-                       
-                
-=======
+
 							<div id="graphDiv"></div>
-							
+             </div>
+			 <div class="row-centered">
+
+                        <div class="header">
+                            <h4 class="title">Palga kuju</h4>
+                            <p class="category">Sinu</p>
+                        </div>
 							<div id="chart">
 							  <svg></svg>
 							</div>
@@ -142,7 +129,6 @@
                         </div>
                     </div>
                 </div>
->>>>>>> origin/master
             </div>
         </div>
     </div>
@@ -199,6 +185,44 @@
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="assets/js/light-bootstrap-dashboard.js"></script>
+
+ <script language="JavaScript">
+                                var config1 = liquidFillGaugeDefaultSettings();
+                                config1.circleColor = "#886EB1";
+                                config1.textColor = "#30C3E6";
+                                config1.waveTextColor = "#ccc";
+                                config1.waveColor = "#886EB1";
+                                config1.circleThickness = 5;
+                                config1.circleFillGap = 4;
+                                config1.textVertPosition = 0.5;
+                                config1.waveAnimateTime = 1000;
+                                config1.minValue = 0;
+                                config1.maxValue = 1000;
+                                var gauge1 = loadLiquidFillGauge("fillgauge1", 213, config1);
+               
+               
+                                var config2 = liquidFillGaugeDefaultSettings();
+                                config2.circleColor = "#886EB1";
+                                config2.textColor = "#30C3E6";
+                                config2.waveTextColor = "#ccc";
+                                config2.waveColor = "#886EB1";
+                                config2.circleThickness = 5;
+                                config2.circleFillGap = 4;
+                                config2.textVertPosition = 0.5;
+                                config2.waveAnimateTime = 1000;
+                                config2.minValue = 0;
+                                config2.maxValue = 1300;
+                                var gauge2 = loadLiquidFillGauge("fillgauge2", 51, config2);
+
+                                function NewValue() {
+                                    if (Math.random() > .5) {
+                                        return Math.round(Math.random() * 1000).toFixed(0);
+                                    } else {
+                                        return (Math.random() * 1000).toFixed(0);
+                                    }
+                                }
+                            </script>
+
 
 	<script>
 		nv.addGraph(function() {
