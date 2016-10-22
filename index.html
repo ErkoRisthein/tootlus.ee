@@ -80,7 +80,7 @@
 
                     <div class="header">
                         <h4 class="title">EESTI KESKMINE FOND</h4>
-                        >
+                        
                     </div>
 
 
@@ -184,170 +184,159 @@
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="assets/js/light-bootstrap-dashboard.js"></script>
 
-    <script language="JavaScript">
-        var config1 = liquidFillGaugeDefaultSettings();
-        config1.circleColor = "#886EB1";
-        config1.textColor = "#30C3E6";
-        config1.waveTextColor = "#ccc";
-        config1.waveColor = "#886EB1";
-        config1.circleThickness = 5;
-        config1.circleFillGap = 4;
-        config1.textVertPosition = 0.5;
-        config1.waveAnimateTime = 1000;
-        config1.minValue = 0;
-        config1.maxValue = 1000;
-        var gauge1 = loadLiquidFillGauge("fillgauge1", 213, config1);
+ <script language="JavaScript">
+                                var config1 = liquidFillGaugeDefaultSettings();
+                                config1.circleColor = "#886EB1";
+                                config1.textColor = "#30C3E6";
+                                config1.waveTextColor = "#ccc";
+                                config1.waveColor = "#886EB1";
+                                config1.circleThickness = 5;
+                                config1.circleFillGap = 4;
+                                config1.textVertPosition = 0.5;
+                                config1.waveAnimateTime = 1000;
+                                config1.minValue = 0;
+                                config1.maxValue = 1000;
+                                var gauge1 = loadLiquidFillGauge("fillgauge1", 213, config1);
+               
+               
+                                var config2 = liquidFillGaugeDefaultSettings();
+                                config2.circleColor = "#886EB1";
+                                config2.textColor = "#30C3E6";
+                                config2.waveTextColor = "#ccc";
+                                config2.waveColor = "#886EB1";
+                                config2.circleThickness = 5;
+                                config2.circleFillGap = 4;
+                                config2.textVertPosition = 0.5;
+                                config2.waveAnimateTime = 1000;
+                                config2.minValue = 0;
+                                config2.maxValue = 1300;
+                                var gauge2 = loadLiquidFillGauge("fillgauge2", 51, config2);
+
+								// remove before final pitch
+                                function NewValue() {
+                                    if (Math.random() > .5) {
+                                        return Math.round(Math.random() * 1000).toFixed(0);
+                                    } else {
+                                        return (Math.random() * 1000).toFixed(0);
+                                    }
+                                }
+                            </script>
 
 
-        var config2 = liquidFillGaugeDefaultSettings();
-        config2.circleColor = "#886EB1";
-        config2.textColor = "#30C3E6";
-        config2.waveTextColor = "#ccc";
-        config2.waveColor = "#886EB1";
-        config2.circleThickness = 5;
-        config2.circleFillGap = 4;
-        config2.textVertPosition = 0.5;
-        config2.waveAnimateTime = 1000;
-        config2.minValue = 0;
-        config2.maxValue = 1300;
-        var gauge2 = loadLiquidFillGauge("fillgauge2", 51, config2);
+	<script>
+		nv.addGraph(function() {
+		  var chart = nv.models.lineWithFocusChart()
+			.useInteractiveGuideline(true)
+			;
+			var data = function() {
+			  var sin = [],
+				  cos = [];
 
-        function NewValue() {
-            if (Math.random() > .5) {
-                return Math.round(Math.random() * 1000).toFixed(0);
-            } else {
-                return (Math.random() * 1000).toFixed(0);
-            }
-        }
-    </script>
+			  for (var i = 0; i < 100; i++) {
+				sin.push({x: i, y: Math.sin(i/10)});
+				cos.push({x: i, y: .5 * Math.cos(i/10)});
+			  }
 
+			  return [
+				{
+				  values: sin,
+				  key: 'Sine Wave',
+				  color: '#ff7f0e'
+				},
+				{
+				  values: cos,
+				  key: 'Cosine Wave',
+				  color: '#2ca02c'
+				}
+			  ];
+			};
 
-    <script>
-        nv.addGraph(function() {
-            var chart = nv.models.lineWithFocusChart()
-                .useInteractiveGuideline(true);
-            var data = function() {
-                var sin = [],
-                    cos = [];
+		  chart.xAxis
+			.axisLabel('Time (ms)')
+			.tickFormat(d3.format(',r'))
+			;
 
-                for (var i = 0; i < 100; i++) {
-                    sin.push({
-                        x: i,
-                        y: Math.sin(i / 10)
-                    });
-                    cos.push({
-                        x: i,
-                        y: .5 * Math.cos(i / 10)
-                    });
-                }
+		  chart.yAxis
+			.axisLabel('Voltage (v)')
+			.tickFormat(d3.format('.02f'))
+			;
 
-                return [{
-                    values: sin,
-                    key: 'Sine Wave',
-                    color: '#ff7f0e'
-                }, {
-                    values: cos,
-                    key: 'Cosine Wave',
-                    color: '#2ca02c'
-                }];
-            };
+		  d3.select('#chart svg')
+			.datum(data())
+			.transition().duration(500)
+			.call(chart)
+			;
 
-            chart.xAxis
-                .axisLabel('Time (ms)')
-                .tickFormat(d3.format(',r'));
+		  nv.utils.windowResize(chart.update);
 
-            chart.yAxis
-                .axisLabel('Voltage (v)')
-                .tickFormat(d3.format('.02f'));
+		  return chart;
+		});
+	</script>
+	
+	<script>
+		var width = 250,
+		height = 250,
+		data = [
+			{value: 500, name: "600€", fill: "#68c59f", stroke: "#000"}, 
+			{value: 250, name: "50€", fill: "#9064b2", stroke: "#000"},
+			{value: 700, name: "4%", fill: "#2fc3e6", stroke: "#000"},
+		],
+		rVals = [];
+					
+		// calculate r of each item so that area scales to value
+		function rCalculation() {
+			var i, 
+				r;
 
-            d3.select('#chart svg')
-                .datum(data())
-                .transition().duration(500)
-                .call(chart);
+			for (i = 0; i < data.length; i += 1) {
+				rVals.push(Math.sqrt(data[i].value / Math.PI)*2);
+			}
+		}
+			
+		function drawGraph(){
+			//create chart
+			var chart = d3.select('#graphDiv').append('svg')
+				.attr('width', width)
+				.attr('height', height);  
 
-            nv.utils.windowResize(chart.update);
+			//create force layout
+			var force = d3.layout.force()
+				.nodes(data)
+				.size([width, height])
+				.linkDistance(10)
+				.charge(function(d, i) {return rVals[i]*(-5);})
+				.on("tick", tick)
+				.start();
+			
+			var node = chart.selectAll(".node")
+				.data(force.nodes())
+				.attr("class", "node")
+				.enter().append("g")
+				.call(force.drag);
+			
+			// blue circle
+			node.append("circle")
+				.attr("r", function(d, i) {return rVals[i];})
+				.style("fill", function(d) {return d.fill;})                
+				.style("stroke", function(d) {return d.stroke;});   
+				
+			node.append("text").text(function(d) { return d.name }).attr({
+			  "alignment-baseline": "middle",
+			  "text-anchor": "middle"
+			});
+			
+					
+			
+			function tick() {
+				node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+			}
+				
+			
+		}
 
-            return chart;
-        });
-    </script>
-
-    <script>
-        var width = 250,
-            height = 250,
-            data = [{
-                value: 500,
-                name: "50%"
-            }, {
-                value: 250,
-                name: "25%"
-            }, {
-                value: 700,
-                name: "70%"
-            }, ],
-            rVals = [];
-
-        // calculate r of each item so that area scales to value
-        function rCalculation() {
-            var i,
-                r;
-
-            for (i = 0; i < data.length; i += 1) {
-                rVals.push(Math.sqrt(data[i].value / Math.PI) * 2);
-            }
-        }
-
-        function drawGraph() {
-            //create chart
-            var chart = d3.select('#graphDiv').append('svg')
-                .attr('width', width)
-                .attr('height', height);
-
-            //create force layout
-            var force = d3.layout.force()
-                .nodes(data)
-                .size([width, height])
-                .linkDistance(10)
-                .charge(function(d, i) {
-                    return rVals[i] * (-5);
-                })
-                .on("tick", tick)
-                .start();
-
-            var node = chart.selectAll(".node")
-                .data(force.nodes())
-                .attr("class", "node")
-                .enter().append("g")
-                .call(force.drag);
-
-            // blue circle
-            node.append("circle")
-                .attr("r", function(d, i) {
-                    return rVals[i];
-                })
-                .style("fill", "#80dabe")
-                .style("stroke", "#1a4876");
-
-            node.append("text").text(function(d) {
-                return d.name
-            }).attr({
-                "alignment-baseline": "middle",
-                "text-anchor": "middle"
-            });
-
-
-
-            function tick() {
-                node.attr("transform", function(d) {
-                    return "translate(" + d.x + "," + d.y + ")";
-                });
-            }
-
-
-        }
-
-        rCalculation();
-        drawGraph();
-    </script>
+		rCalculation();
+		drawGraph();
+	</script>
 
 
 </body>
