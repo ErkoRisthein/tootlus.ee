@@ -42,16 +42,64 @@
     <script src="nv.d3.min.js"></script>
 
     <style>
+      
         
+
         .btn-info {
                
-                padding: 0px;
+                padding: 10px;
                 height: 40px;
                 border: none;
                 background: none;
-                color: #666666;
                 opacity: 0.4;
             }
+        .dropbtn {
+            
+            
+           
+            font-size: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Dropdown button on hover & focus */
+        .dropbtn:hover, .dropbtn:focus {
+            
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown1 {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown1-content {
+            display: none;
+            position: absolute;
+            background-color: #eeeeee;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+        /* Links inside the dropdown */
+        .dropdown1-content a {
+            color: #666;
+            padding: 12px 16px;
+            font-color:black;
+            text-decoration: none;
+            font-size: 10;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown1-content a:hover {color: #000}
+
+        /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+        .show {display:block;}
+        
+
+        
 
         #chart svg {
             height: 400px;
@@ -135,27 +183,32 @@
                         </div>
 
 
-                        <div class="form-group col-xs-2">
-                            <label for="fund-value" class="sr-only"></label>
-                            MINU FOND
-                            <select name="fund" id="fund-value" class="form-control input-group-lg">
-                                <option value="lhv">LHV</option>
-                                <option value="tuleva">Tuleva</option>
-                            </select>
-                        </div>
+                        
 
 
                          <div class="form-group col-xs-2">
                             <label for="age" class="sr-only"></label>
                          KONTOVÄÄRTUS
-                            <input id="age" class="form-control input-group-lg reg_name" type="text" name="lastname"
-                                   title="vanus"
-                                   placeholder="70000"/>
+                            <input id="konto" class="form-control input-group-lg reg_name" type="text" name="lastname"
+                                   title=" number"
+                                   placeholder="VALIKULINE"/>
+                        </div>
+                        <div class="form-group col-xs-2 ">
+                            <label for="fund-value" class="sr-only"></label>
+                            MINU FOND   <br>
+                            <select name="fund" id="fund-value" class="form-control input-group-lg reg_name">
+                                <option value="tuleva">Nordea</option>
+                                <option value="lhv">LHV</option>
+                                <option value="tuleva">SEB</option>
+                                <option value="tuleva">Tuleva</option>
+                                <option value="tuleva">SwedBank</option>
+                                
+                            </select>
                         </div>
 
                          <div class="form-group col-xs-2">
                            <button type="submit" name="calculate" class="myButton">Arvuta</button>
-
+                          
                         </div>
 
                     </div>
@@ -179,11 +232,20 @@
                 <div class="col-md-2 col-md-offset-2">
                     <div class="header">
                         <h4 class="title">INDEXIFOND
-                            <button class="btn-info">
-                              <img src="img/i_sign.svg">
-                            </button>
+                            <div class="dropdown">
+                              <button onclick="myFunction()" class="dropbtn btn-info"><img src="img/i_sign.svg">
+                                </button>
+                              <div id="myDropdown1" class="dropdown1-content">
+                               <p class="lisainfo"> Me võrdleme sinu pensionifondi tootlust Vanguardi indeksifondide omaga. Vastavalt sellele, kas sinu pensionifond on 75%, 50%, 25% või 0% aktsiate osakaaluga</p>
+
+                                
+                              </div>
+                            </div>
+
+                          
+                            
                         </h4>
-                        
+                        </div>
 
                         <svg id="index-fund" width="400" height="400"></svg>
                         <p class="category">teenustasud</p>
