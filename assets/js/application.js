@@ -3,20 +3,20 @@ $(function () {
 	var _gauge_defaults = {
 		circleColor: "#886EB1",
 		textColor: "#30C3E6",
-		waveTextColor: "#ccc",
+		waveTextColor: "#a2f1ff",
 		waveColor: "#886EB1",
 		circleThickness: 5,
 		circleFillGap: 5,
 		textVertPosition: 0.5,
 		waveAnimateTime: 1000,
 		minValue: 0,
-		maxValue: 100,
+		maxValue: 1000,
 	}
 
 	var gaugeConfig = $.extend({}, liquidFillGaugeDefaultSettings(), _gauge_defaults)
 
-	var fundPlain = loadLiquidFillGauge('plain-fund', 1, gaugeConfig)
-	var fundIndex = loadLiquidFillGauge('index-fund', 1, gaugeConfig)
+	var fundPlain = loadLiquidFillGauge('plain-fund', 800, gaugeConfig)
+	var fundIndex = loadLiquidFillGauge('index-fund', 950, gaugeConfig)
 
 	var chart = null
 	var calc = $('.calculator')
