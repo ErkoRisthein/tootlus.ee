@@ -246,13 +246,13 @@
             <h3 class="title">KESKMISELT FONDI INVESTEERING 1000€ KOHTA</h3>
 
         </div>
-        <div class="col-md-3 col-md-offset-3">
+		<div class="col-md-6 text-right">
 
         <div class="average" id="graphDiv"></div>
        <!-- mullide keskmine, valikust lähtudes class on vaba-->
         </div>
      
-       <div class="col-md-3 col-md-offset-3">
+       <div class="col-md-6">
         <div class="index" id="graphDiv2"></div>
         <!-- mullide index, indeks  class on vaba-->
         </div>
@@ -260,7 +260,7 @@
         </div>
     <div class="container">
         <div class="header">
-            <h4 class="title">SINU TULEVIKU PALK</h4>
+            <h4 class="title">PENSIONIKONTO VÄÄRTUSE KASV</h4>
             <p class="category"></p>
         </div>
         <div class="content">
@@ -354,50 +354,50 @@
     // if  #graphDiv in chart: data =data 1
         //else data=data2
 
-		data = [
+		data1 = [
 			{value: 1500, name: "600€", fill: "#68c59f"},
 			{value: 500, name: "50€", fill: "#9064b2"},
 			{value: 1000, name: "4%", fill: "#2fc3e6"},
 		],
-        data1 = [
-            {value: 500, name: "600€", fill: "#68c59f"},
-            {value: 250, name: "50€", fill: "#9064b2"},
-            {value: 700, name: "4%", fill: "#2fc3e6"},
-        ],
         data2 = [
-            {value: 500, name: "600€", fill: "#68c59f"},
-            {value: 250, name: "50€", fill: "#9064b2"},
-            {value: 700, name: "4%", fill: "#2fc3e6"},
+            {value: 500, name: "500€", fill: "#68c59f"},
+            {value: 250, name: "25€", fill: "#9064b2"},
+            {value: 700, name: "2%", fill: "#2fc3e6"},
         ],
-		rVals = [];
+		rVals1 = [];
+		rVals2 = [];
+
 
 		// calculate r of each item so that area scales to value
-		function rCalculation() {
-			var i,
-				r;
+		function rCalculation1() {
+			var i, r;
 
-			for (i = 0; i < data.length; i += 1) {
-				rVals.push(Math.sqrt(data[i].value / Math.PI)*2);
+			for (i = 0; i < data1.length; i += 1) {
+				rVals1.push(Math.sqrt(data1[i].value / Math.PI)*2);
 			}
 		}
 
-		function drawGraph(){
+		function rCalculation2() {
+			var i, r;
+
+			for (i = 0; i < data2.length; i += 1) {
+				rVals2.push(Math.sqrt(data2[i].value / Math.PI)*2);
+			}
+		}
+
+		function drawGraph1(){
 			//create chart
 			var chart = d3.select('#graphDiv').append('svg')
 
 				.attr('width', width)
 				.attr('height', height);
-            var chart2 = d3.select('#graphDiv2').append('svg')
-
-                .attr('width', width)
-                .attr('height', height);
 
 			//create force layout
 			var force = d3.layout.force()
-				.nodes(data)
+				.nodes(data1)
 				.size([width, height])
 				.linkDistance(10)
-				.charge(function(d, i) {return rVals[i]*(-5);})
+				.charge(function(d, i) {return rVals1[i]*(-5);})
 				.on("tick", tick)
 				.start();
 
@@ -409,26 +409,63 @@
 
 			// blue circle
 			node.append("circle")
-				.attr("r", function(d, i) {return rVals[i];})
-				.style("fill", function(d) {return d.fill;})
-				.style("color", "white");
+				.attr("r", function(d, i) {return rVals1[i];})
+				.style("fill", function(d) {return d.fill;});
 
 			node.append("text").text(function(d) { return d.name }).attr({
 			  "alignment-baseline": "middle",
 			  "text-anchor": "middle"
-			});
+			}).style("fill", "white");
 
 
 
 			function tick() {
 				node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 			}
-
-
 		}
 
-		rCalculation();
-		drawGraph();
+		function drawGraph2(){
+			//create chart
+			var chart = d3.select('#graphDiv2').append('svg')
+					.attr('width', width)
+					.attr('height', height);
+
+			//create force layout
+			var force = d3.layout.force()
+					.nodes(data2)
+					.size([width, height])
+					.linkDistance(10)
+					.charge(function(d, i) {return rVals2[i]*(-5);})
+					.on("tick", tick)
+					.start();
+
+			var node = chart.selectAll(".node")
+					.data(force.nodes())
+					.attr("class", "node")
+					.enter().append("g")
+					.call(force.drag);
+
+			// blue circle
+			node.append("circle")
+					.attr("r", function(d, i) {return rVals2[i];})
+					.style("fill", function(d) {return d.fill;});
+
+			node.append("text").text(function(d) { return d.name }).attr({
+				"alignment-baseline": "middle",
+				"text-anchor": "middle"
+			}).style("fill", "white");
+
+
+
+			function tick() {
+				node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+			}
+		}
+
+		rCalculation1();
+		drawGraph1();
+		rCalculation2();
+		drawGraph2();
 	</script>
 	<!-- info nupu float-->
 	<script>
