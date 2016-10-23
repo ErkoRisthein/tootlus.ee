@@ -42,6 +42,17 @@
     <script src="nv.d3.min.js"></script>
 
     <style>
+        
+        .btn-info {
+               
+                padding: 0px;
+                height: 40px;
+                border: none;
+                background: none;
+                color: #666666;
+                opacity: 0.4;
+            }
+
         #chart svg {
             height: 400px;
 
@@ -167,7 +178,12 @@
 
                 <div class="col-md-2 col-md-offset-2">
                     <div class="header">
-                        <h4 class="title">INDEXIFOND</h4>
+                        <h4 class="title">INDEXIFOND
+                            <button class="btn-info">
+                              <img src="img/i_sign.svg">
+                            </button>
+                        </h4>
+                        
 
                         <svg id="index-fund" width="400" height="400"></svg>
                         <p class="category">teenustasud</p>
@@ -180,13 +196,20 @@
     <div class="content">
 
         <div class="header">
-            <h3 class="title">MUUUUUUUUUU</h3>
+            <h3 class="title">KESKMISELT FONDI INVESTEERING 1000€ KOHTA</h3>
 
         </div>
 
-        <div id="graphDiv"></div>
-    </div>
+        <div class="average" id="graphDiv"></div>
+       <!-- mullide keskmine, valikust lähtudes class on vaba-->
 
+     
+
+        <div class="index" id="graphDiv2"></div>
+        <!-- mullide index, indeks  class on vaba-->
+        </div>
+
+        </div>
     <div class="content">
         <div class="header">
             <h4 class="title">Palga kuju</h4>
@@ -244,6 +267,7 @@
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="assets/js/light-bootstrap-dashboard.js"></script>
 
+<!--- järgnev graafika on alumine AJAST sõltuv-->
 	<script>
 		nv.addGraph(function() {
 		  var chart = nv.models.lineWithFocusChart()
@@ -293,15 +317,28 @@
 		  return chart;
 		});
 	</script>
-
+<!--- järgnev graafika on alumine  PALLID-->
 	<script>
 		var width = 250,
 		height = 250,
+    // if  #graphDiv in chart: data =data 1
+        //else data=data2
+
 		data = [
 			{value: 500, name: "600€", fill: "#68c59f"},
 			{value: 250, name: "50€", fill: "#9064b2"},
 			{value: 700, name: "4%", fill: "#2fc3e6"},
 		],
+        data1 = [
+            {value: 500, name: "600€", fill: "#68c59f"},
+            {value: 250, name: "50€", fill: "#9064b2"},
+            {value: 700, name: "4%", fill: "#2fc3e6"},
+        ],
+        data2 = [
+            {value: 500, name: "600€", fill: "#68c59f"},
+            {value: 250, name: "50€", fill: "#9064b2"},
+            {value: 700, name: "4%", fill: "#2fc3e6"},
+        ],
 		rVals = [];
 
 		// calculate r of each item so that area scales to value
@@ -317,8 +354,13 @@
 		function drawGraph(){
 			//create chart
 			var chart = d3.select('#graphDiv').append('svg')
+
 				.attr('width', width)
 				.attr('height', height);
+            var chart2 = d3.select('#graphDiv2').append('svg')
+
+                .attr('width', width)
+                .attr('height', height);
 
 			//create force layout
 			var force = d3.layout.force()
