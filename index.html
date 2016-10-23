@@ -42,20 +42,32 @@
     <script src="nv.d3.min.js"></script>
 
     <style>
-        .tabel{
-            padding: 100px,100px,100px,100px;
-            margin: 100px,100px,100px,100px;
-            display: block;
-        }
-        .halliks{
-            opacity: 0.4;
-
-        }
-
-    
         fieldset.riba{
           float:right; 
           display: block;
+        }
+                
+
+        .btn-info {
+               
+                padding: 10px;
+                height: 40px;
+                border: none;
+                background: none;
+                opacity: 0.4;
+            }
+        .dropbtn1 {
+            
+            
+           
+            font-size: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Dropdown button on hover & focus */
+        .dropbtn1:hover, .dropbtn1:focus {
+            
         }
                 
         .sinine{
@@ -64,7 +76,25 @@
             color: #8e63b0
 
         }
-       
+
+        /* Links inside the dropdown */
+        .dropdown1-content a {
+            color: #666;
+            padding: 12px 16px;
+            font-color:black;
+            text-decoration: none;
+            font-size: 10;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown1-content a:hover {color: #000}
+
+        /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+        .show {display:block;}
+        
+
+        
 
         #chart svg {
             height: 400px;
@@ -130,10 +160,10 @@
 		<h3 class="title">VAATA, MIS HAKKAB OLEMA <strong class="sinine">SINU <br> PENSIONI VÄLJAMAKSE</strong> TULEVIKUS</h3>
 	</div>
 
-	<div class="container">
-		<div class="row">
+           <fieldset class="riba container-fluid">
+        
+            <nav class="pull-center">
 
-           <fieldset>
             <form name="registration_form" id='registration_form' class="form-inline calculator">
                     <div class="row">
                         <div class="form-group col-xs-2">
@@ -155,7 +185,7 @@
                         </div>
 
 
-                        
+
 
 
                          <div class="form-group col-xs-2">
@@ -174,13 +204,13 @@
                                 <option value="tuleva">SEB</option>
                                 <option value="tuleva">Tuleva</option>
                                 <option value="tuleva">SwedBank</option>
-                                
+
                             </select>
                         </div>
 
                          <div class="form-group col-xs-2">
                            <button type="submit" name="calculate" class="myButton">Arvuta</button>
-                          
+
                         </div>
 
                     </div>
@@ -203,7 +233,7 @@
                                 Valitsemistasu – tasu pensionifondivalitsejale pensionifondi valitsemise eest. Valitsemistasu ei too osakuomanikule kaasa täiendavaid rahalisi arveldusi, vaid selle võrra väheneb osaku puhasväärtus (NAV)">
 								<img src="img/i_sign.svg">
 
-
+                                
                             </span>
 					</p>
                      <p class="category pull-right" style="width:300px">
@@ -212,13 +242,6 @@
                     </p>
                 </div>
 
-               <div class="col-md-6">
-                    <div class="header">
-						<h4 class="title" style="width:400px">INDEKSIFOND
-
-							<span class="halliks" data-toggle="popover" data-trigger="hover" data-placement="top"
-							data-content="Me võrdleme sinu pensionifondi tootlust Vanguardi indeksifondide omaga. Vastavalt sellele, kas sinu pensionifond on 75%, 50%, 25% või 0% aktsiate osakaaluga">
-							<img src="img/i_sign.svg"></span>
                           
                             
                         </h4>
@@ -252,7 +275,7 @@
        <!-- mullide keskmine, valikust lähtudes class on vaba-->
         </div>
      
-       <div class="col-md-6">
+       <div class="col-md-3 col-md-offset-3">
         <div class="index" id="graphDiv2"></div>
         <!-- mullide index, indeks  class on vaba-->
         </div>
@@ -272,12 +295,12 @@
 
 
     <footer class="footer">
-        <div class="container">
-           
+        <div class="container-fluid">
+            <nav class="pull-center">
                 
               
            
-           
+            </nav>
             <p class="copyright pull-center">
                 &copy; 2016 <a href="tootlus.ee">tootlus.ee</a>, panusta oma tulevikku ise
             </p>
@@ -299,6 +322,7 @@
 
 <!--- järgnev graafika on alumine AJAST sõltuv-->
 	<script>
+        /*
 		nv.addGraph(function() {
 		  var chart = nv.models.lineWithFocusChart()
 			.useInteractiveGuideline(true)
@@ -346,6 +370,7 @@
 
 		  return chart;
 		});
+        */
 	</script>
 <!--- järgnev graafika on alumine  PALLID-->
 	<script>
