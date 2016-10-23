@@ -204,7 +204,7 @@
             <div class="row">
                 <div class="col-md-6 text-right">
 
-                  	<h4 class="title pull-right" style="width:300px; padding-bottom:0">EESTI KESKMINE FOND</h4>
+                  	<h4 class="title pull-right selected-fund-name" style="width:300px; padding-bottom:0">EESTI KESKMINE FOND</h4>
 					<h4 class="title pull-right" style="width:300px; margin-bottom:-150px">Sinu pensioni<br>kuumakse</h4>
 
                     <svg id="plain-fund" width="300" height="300"></svg>
@@ -219,10 +219,7 @@
 
                             </span>
 					</p>
-                     <p class="category pull-right" style="width:300px">
-                        SUMMA
-
-                    </p>
+                     <p class="category pull-right fund-plain-fees" style="width:300px"></p>
                 </div>
 
                <div class="col-md-6">
@@ -241,10 +238,7 @@
 							data-content="asdfg">
 							<img src="img/i_sign.svg"></span>
                         </p>
-                         <p class="category" style="width:400px">
-                        SUMMA
-
-                    </p>
+                        <p class="category fund-index-fees" style="width:400px"></p>
                     </div>
                 </div>
             </div>
@@ -263,17 +257,17 @@
         <div class="average" id="graphDiv"></div>
        <!-- mullide keskmine, valikust lähtudes class on vaba-->
         </div>
-       
-                            
+
+
 
        <div class="col-md-6">
         <div class="legend" > <span class="tootlus_m"><b>o</b></span> Tootlusmäär <span class="tootlus"><b>o</b></span>Tootlus <span class="tootlus_t"><b>o</b></span>Teenustasu </div>
         <div class="index" id="graphDiv2"></div>
         <!-- mullide index, indeks  class on vaba-->
-         
+
         </div>
 
-        
+
         </div>
         </br>
 
@@ -428,7 +422,7 @@
 				"text-anchor": "middle"
 			}).style("fill", "white");
 
-          
+
 
 			function tick() {
 				node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });

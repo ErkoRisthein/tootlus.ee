@@ -28,7 +28,9 @@ $(function () {
 		var prec = Math.round(funds.index.fees / funds.index.gross * 100)
 		fundIndex.update(prec, funds.index.pension)
 
-		console.log('update',funds)
+		$('.fund-plain-fees').text( funds.plain.fees + '€')
+		$('.fund-index-fees').text( funds.index.fees + '€')
+		$('.selected-fund-name').text(funds.plain.name)
 	})
 
 	calc.on('calculator.graph', function (ignore, graph) {

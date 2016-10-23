@@ -103,6 +103,8 @@ var PensionCalculator = (function (scope) {
 			result[type].fees = result[type].gross - result[type].net
 		}
 
+		result.plain.name = fund.name
+
 		scope.trigger('calculator.update', result)
 	}
 
