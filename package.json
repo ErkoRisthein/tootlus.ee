@@ -1,10 +1,17 @@
 {
-    "name": "tootlus",
-    "version": "0.1.0",
-    "dependencies": {
-        "express": "4.13.4"
-    },
-    "scripts": {
-        "start": "node index.js"
-    }
+  "name": "tootlus",
+  "version": "0.1.0",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "express": "4.13.4",
+    "lodash": "^4.16.4",
+    "request": "^2.75.0"
+  },
+  "scripts": {
+    "watch": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "must": "^0.13.2"
+  }
 }
