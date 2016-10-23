@@ -42,6 +42,7 @@
     <script src="nv.d3.min.js"></script>
 
     <style>
+        
         .tabel{
             padding: 100px,100px,100px,100px;
             margin: 100px,100px,100px,100px;
@@ -196,6 +197,7 @@
                   	<h4 class="title pull-right" style="width:300px">EESTI KESKMINE FOND</h4>
 
                     <svg id="plain-fund" width="300" height="300"></svg>
+
                     <p class="category pull-right" style="width:300px">teenustasud
 						<span data-toggle="popover" data-trigger="hover" data-placement="top"
 								data-content="Väljalasketasu – osakute väljalaskmisel fondivalitseja poolt võetav teenustasu.
@@ -305,14 +307,14 @@
         //else data=data2
 
 		data1 = [
-			{value: 1500, name: "600€", fill: "#68c59f"},
-			{value: 500, name: "50€", fill: "#9064b2"},
-			{value: 1000, name: "4%", fill: "#2fc3e6"},
+			{value: 1500, name: "600€",title:"minuRaha", fill: "#68c59f"},
+			{value: 500, name: "50€", title:"sinuRaha", fill: "#9064b2"},
+			{value: 1000, name: "4%", title:"temaRaha", fill: "#2fc3e6"},
 		],
         data2 = [
-            {value: 500, name: "500€", fill: "#68c59f"},
-            {value: 250, name: "25€", fill: "#9064b2"},
-            {value: 700, name: "2%", fill: "#2fc3e6"},
+            {value: 500, name: "500€",title:"Raha", fill: "#68c59f"},
+            {value: 250, name: "25€",title:"Raha", fill: "#9064b2"},
+            {value: 700, name: "2%", title:"Raha",fill: "#2fc3e6"},
         ],
 		rVals1 = [];
 		rVals2 = [];
@@ -369,7 +371,7 @@
 
 			}).style("fill", "white");
 
-            node.append("text").text(function(d) { return "MINU RAHA"}).attr({
+            node.append("text").text(function(d) { return d.title}).attr({
               "alignment-baseline": "start",
               "text-anchor": "start",
                "x":"20",
@@ -414,7 +416,7 @@
 				"text-anchor": "middle"
 			}).style("fill", "white");
 
-             node.append("text").text(function(d) { return "MINU RAHA"}).attr({
+             node.append("text").text(function(d) { return d.title}).attr({
               "alignment-baseline": "start",
               "text-anchor": "start",
                "x":"20",
