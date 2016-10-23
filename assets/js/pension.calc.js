@@ -151,7 +151,14 @@ var PensionCalculator = (function (scope) {
 	function init () {
 		var fundSelect = $('[name="fund"]').empty()
 		$.each(funds, function (index, fund) {
-			fundSelect.append($('<option value="' + index + '">' + fund.name + '</option>'))
+			var opt = $('<option value="' + index + '">' + fund.name + '</option>')
+
+			if (fund.name == 'SEB Progressiivne Pensionifond') {
+				opt.prop('selected', true)
+				fundSelect.val(index)
+			}
+
+			fundSelect.append(opt)
 		})
 
 		scope.on('submit', function (ev) {
@@ -198,6 +205,11 @@ var PensionCalculator = (function (scope) {
 
 				$.get('/data/getComparison', { isin: fund.isin, indexRatio: indexRatio }, function (json) {
 					index_stats = json
+
+					scope.trigger('calculator.comparison', {
+						index: json,
+						plain: fund_stats,
+					})
 
 					calculate()
 
