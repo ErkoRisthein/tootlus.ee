@@ -15,8 +15,8 @@ $(function () {
 
 	var gaugeConfig = $.extend({}, liquidFillGaugeDefaultSettings(), _gauge_defaults)
 
-	var fundPlain = loadLiquidFillGauge('plain-fund', 800, gaugeConfig)
-	var fundIndex = loadLiquidFillGauge('index-fund', 950, gaugeConfig)
+	var fundPlain = loadLiquidFillGauge('plain-fund', 1, gaugeConfig)
+	var fundIndex = loadLiquidFillGauge('index-fund', 1, gaugeConfig)
 
 	var chart = null
 	var calc = $('.calculator')
