@@ -53,6 +53,7 @@
 
 
         }
+
         .legend{
             text-align: center;
 
@@ -142,6 +143,7 @@
 
 
 <body>
+     <div id="fb-root"></div>
     <nav class="navbar navbar-default navbar-fixed colorfix">
         <div class="container">
             <div class="navbar-header colorfix2">
@@ -300,14 +302,16 @@
 
     <footer class="footer">
         <div class="container">
-
-
-
-
-
-            <p class="copyright pull-center">
-                &copy; 2016 <a href="tootlus.ee">tootlus.ee</a>, panusta oma tulevikku ise
-            </p>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-5">
+                    <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Jaga</a></div>
+                </div>
+            </div>
+                <div class="row">
+                    <p class="copyright ">
+                        &copy; 2016 <a href="tootlus.ee">tootlus.ee</a>, panusta oma tulevikku ise 
+                    </p>
+                </div>
         </div>
     </footer>
 
@@ -463,6 +467,15 @@
 		ga('send', 'pageview');
 
 	</script>
+   
+    <!-- facebook-->
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/et_EE/sdk.js#xfbml=1&version=v2.8";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 
 </body>
 
