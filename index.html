@@ -188,38 +188,37 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3 col-md-offset-3">
+                <div class="col-md-6 text-right">
 
-                    <div class="header">
+                    <div class="header" style="width 300px">
                         <h4 class="title">EESTI KESKMINE FOND</h4>
                     </div>
 
                     <svg id="plain-fund" width="300" height="300"></svg>
-                    <p class="category">teenustasud</p>
+                    <p class="category">teenustasud
+						<span data-toggle="popover" data-trigger="hover" data-placement="top" 
+								data-content="dsa">
+								<img src="img/i_sign.svg"></span>
+					</p>
                 </div>
 
-               <div class="col-md-2 col-md-offset-2">
+               <div class="col-md-6">
                     <div class="header">
                         <h4 class="title">INDEXIFOND
-                            <div class="dropdown1">
-                              <button onclick="myFunction()" class="dropbtn1 btn-info "><img src="img/i_sign.svg">
-                               
-                             
-                               <p class="lisainfo"> Me võrdleme sinu pensionifondi tootlust Vanguardi indeksifondide omaga. Vastavalt sellele, kas sinu pensionifond on 75%, 50%, 25% või 0% aktsiate osakaaluga</p>
 
-                                 </button>
-                              </div>
-                            </div>
-
+							<span data-toggle="popover" data-trigger="hover" data-placement="top" 
+							data-content="Me võrdleme sinu pensionifondi tootlust Vanguardi indeksifondide omaga. Vastavalt sellele, kas sinu pensionifond on 75%, 50%, 25% või 0% aktsiate osakaaluga">
+							<img src="img/i_sign.svg"></span>
                           
                             
                         </h4>
-                        </div>
+
 
                         <svg id="index-fund" width="400" height="400"></svg>
                         <p class="category">teenustasud
-                         <button onclick="myFunction()" class="dropbtn1 btn-info "><img src="img/i_sign.svg">
-                        </button>
+                         <span data-toggle="popover" data-trigger="hover" data-placement="top" 
+							data-content="asdfg">
+							<img src="img/i_sign.svg"></span>
                         </p>
                     </div>
                 </div>
@@ -415,6 +414,12 @@
 
 		rCalculation();
 		drawGraph();
+	</script>
+	
+	<script>
+		$(function () {
+		  $('[data-toggle="popover"]').popover()
+		})
 	</script>
 
 
