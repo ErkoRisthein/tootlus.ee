@@ -1,6 +1,9 @@
-var express = require('express'),
-app = express(); 
+const express = require('express');
+const app = express();
+
 app.use('/', express.static(__dirname + '/'));
-app.listen(80, function(){
+app.use('/data', require('./routes/data'));
+
+app.listen(80, function () {
   console.log('Express listening on port', this.address().port);
 });
