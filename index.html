@@ -52,11 +52,6 @@
 
         }
 
-        .keskele{
-            padding: 0;
-            float: right;
-            text-align: right;
-        }
         .colorfix{
             background-color: #ffffff;
             opacity: 1;
@@ -138,14 +133,14 @@
             </div>
         </div>
     </nav>
-             <div class="header">
-            <h3 class="title">VAATA, MIS HAKKAB OLEMA <b class="sinine">SINU <br> PENSIONI VÄLJAMAKSED</b> TULEVIKUS</h3>
+	<div class="header">
+		<h3 class="title">VAATA, MIS HAKKAB OLEMA <strong class="sinine">SINU <br> PENSIONI VÄLJAMAKSE</strong> TULEVIKUS</h3>
+	</div>
 
-        </div>
-           <fieldset class="riba container-fluid">
-        
-            
+	<div class="container">
+		<div class="row">
 
+           <fieldset>
             <form name="registration_form" id='registration_form' class="form-inline calculator">
                     <div class="row">
                         <div class="form-group col-xs-2">
@@ -195,32 +190,29 @@
 
                     </div>
             </form>
-     
 
            </fieldset>
 
 
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-md-6 text-right">
 
-                    <div class="header" style="width 300px"class="keskele">
-                        <h4 class="title">EESTI KESKMINE FOND</h4>
-                    </div>
+                  	<h4 class="title pull-right" style="width:300px">EESTI KESKMINE FOND</h4>
 
                     <svg id="plain-fund" width="300" height="300"></svg>
-                    <p class="category"class="keskele">teenustasud
-						<span class="halliks" data-toggle="popover" data-trigger="hover" data-placement="top" 
+                    <p class="category pull-right" style="width:300px">teenustasud
+						<span data-toggle="popover" data-trigger="hover" data-placement="top" 
 								data-content="dsa">
 								<img src="img/i_sign.svg"></span>
 					</p>
                 </div>
 
                <div class="col-md-6">
-                    <div class="header"class="keskele">
-                        <h4 class="title">INDEXIFOND
+                    <div class="header">
+						<h4 class="title" style="width:400px">INDEKSIFOND
 
-							<span class="halliks" data-toggle="popover" data-trigger="hover" data-placement="top" 
+							<span class="halliks" data-toggle="popover" data-trigger="hover" data-placement="top"
 							data-content="Me võrdleme sinu pensionifondi tootlust Vanguardi indeksifondide omaga. Vastavalt sellele, kas sinu pensionifond on 75%, 50%, 25% või 0% aktsiate osakaaluga">
 							<img src="img/i_sign.svg"></span>
                           
@@ -229,8 +221,8 @@
 
 
                         <svg id="index-fund" width="400" height="400"></svg>
-                        <p class="category"class="keskele">teenustasud
-                         <span class="halliks" data-toggle="popover" data-trigger="hover" data-placement="top" 
+                        <p class="category" style="width: 400px">teenustasud
+                         <span class="halliks" data-toggle="popover" data-trigger="hover" data-placement="top"
 							data-content="asdfg">
 							<img src="img/i_sign.svg"></span>
                         </p>
@@ -437,6 +429,16 @@
 		})
 	</script>
 
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-86191889-1', 'auto');
+		ga('send', 'pageview');
+
+	</script>
 
 </body>
 
