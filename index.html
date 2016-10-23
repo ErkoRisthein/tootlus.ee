@@ -52,19 +52,19 @@
 
         }
 
-    
+
         fieldset.riba{
-          float:right; 
+          float:right;
           display: block;
         }
-                
+
         .sinine{
             font-size: 24px
             background-color: none;
             color: #8e63b0
 
         }
-       
+
 
         #chart svg {
             height: 400px;
@@ -155,7 +155,7 @@
                         </div>
 
 
-                        
+
 
 
                          <div class="form-group col-xs-2">
@@ -174,13 +174,13 @@
                                 <option value="tuleva">SEB</option>
                                 <option value="tuleva">Tuleva</option>
                                 <option value="tuleva">SwedBank</option>
-                                
+
                             </select>
                         </div>
 
                          <div class="form-group col-xs-2">
                            <button type="submit" name="calculate" class="myButton">Arvuta</button>
-                          
+
                         </div>
 
                     </div>
@@ -197,7 +197,7 @@
 
                     <svg id="plain-fund" width="300" height="300"></svg>
                     <p class="category pull-right" style="width:300px">teenustasud
-						<span data-toggle="popover" data-trigger="hover" data-placement="top" 
+						<span data-toggle="popover" data-trigger="hover" data-placement="top"
 								data-content="Väljalasketasu – osakute väljalaskmisel fondivalitseja poolt võetav teenustasu.
                                 Tagasivõtmistasu – osakute lunastamisel (fondivalitseja poolt tagasi võtmisel) fondivalitseja poolt võetav teenustasu.
                                 Valitsemistasu – tasu pensionifondivalitsejale pensionifondi valitsemise eest. Valitsemistasu ei too osakuomanikule kaasa täiendavaid rahalisi arveldusi, vaid selle võrra väheneb osaku puhasväärtus (NAV)">
@@ -208,7 +208,7 @@
 					</p>
                      <p class="category pull-right" style="width:300px">
                         SUMMA
-                       
+
                     </p>
                 </div>
 
@@ -219,8 +219,8 @@
 							<span class="halliks" data-toggle="popover" data-trigger="hover" data-placement="top"
 							data-content="Me võrdleme sinu pensionifondi tootlust Vanguardi indeksifondide omaga. Vastavalt sellele, kas sinu pensionifond on 75%, 50%, 25% või 0% aktsiate osakaaluga">
 							<img src="img/i_sign.svg"></span>
-                          
-                            
+
+
                         </h4>
 
 
@@ -232,7 +232,7 @@
                         </p>
                          <p class="category" style="width:400px">
                         SUMMA
-                       
+
                     </p>
                     </div>
                 </div>
@@ -251,7 +251,7 @@
         <div class="average" id="graphDiv"></div>
        <!-- mullide keskmine, valikust lähtudes class on vaba-->
         </div>
-     
+
        <div class="col-md-6">
         <div class="index" id="graphDiv2"></div>
         <!-- mullide index, indeks  class on vaba-->
@@ -273,11 +273,11 @@
 
     <footer class="footer">
         <div class="container">
-           
-                
-              
-           
-           
+
+
+
+
+
             <p class="copyright pull-center">
                 &copy; 2016 <a href="tootlus.ee">tootlus.ee</a>, panusta oma tulevikku ise
             </p>
@@ -297,56 +297,6 @@
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="assets/js/light-bootstrap-dashboard.js"></script>
 
-<!--- järgnev graafika on alumine AJAST sõltuv-->
-	<script>
-		nv.addGraph(function() {
-		  var chart = nv.models.lineWithFocusChart()
-			.useInteractiveGuideline(true)
-			;
-			var data = function() {
-			  var sin = [],
-				  cos = [];
-
-			  for (var i = 0; i < 100; i++) {
-				sin.push({x: i, y: Math.sin(i/10)});
-				cos.push({x: i, y: .5 * Math.cos(i/10)});
-			  }
-
-			  return [
-				{
-				  values: sin,
-				  key: 'Sine Wave',
-				  color: '#ff7f0e'
-				},
-				{
-				  values: cos,
-				  key: 'Cosine Wave',
-				  color: '#2ca02c'
-				}
-			  ];
-			};
-
-		  chart.xAxis
-			.axisLabel('Time (ms)')
-			.tickFormat(d3.format(',r'))
-			;
-
-		  chart.yAxis
-			.axisLabel('Voltage (v)')
-			.tickFormat(d3.format('.02f'))
-			;
-
-		  d3.select('#chart svg')
-			.datum(data())
-			.transition().duration(500)
-			.call(chart)
-			;
-
-		  nv.utils.windowResize(chart.update);
-
-		  return chart;
-		});
-	</script>
 <!--- järgnev graafika on alumine  PALLID-->
 	<script>
 		var width = 250,
@@ -421,10 +371,10 @@
 
             node.append("text").text(function(d) { return "MINU RAHA"}).attr({
               "alignment-baseline": "start",
-              "text-anchor": "start", 
+              "text-anchor": "start",
                "x":"20",
                 "y":"40"
-              
+
             }).style("fill", "grey");
 
 
@@ -466,10 +416,10 @@
 
              node.append("text").text(function(d) { return "MINU RAHA"}).attr({
               "alignment-baseline": "start",
-              "text-anchor": "start", 
+              "text-anchor": "start",
                "x":"20",
                 "y":"40"
-              
+
             }).style("fill", "grey");
 
 
