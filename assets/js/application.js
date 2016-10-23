@@ -102,6 +102,7 @@ $(function () {
         */
 
         d3.select('#graphDiv').html('')
+        d3.select('#graphDiv2').html('')
 
 		rCalculation1();
 		drawGraph1();
