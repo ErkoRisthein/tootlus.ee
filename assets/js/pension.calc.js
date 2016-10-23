@@ -15,6 +15,15 @@ var PensionCalculator = (function (scope) {
 		pension_percentage: 0.45,
 	}
 
+	var funds
+
+	$.getJSON('/funds.json', function (data) {
+		funds = data
+
+		init()
+	})
+
+	/*
 	var funds = {
 		lhv: {
 			plain: {
@@ -37,6 +46,7 @@ var PensionCalculator = (function (scope) {
 			}
 		}
 	}
+	*/
 
 	// defaults_
 	var age, income, fund
@@ -138,6 +148,11 @@ var PensionCalculator = (function (scope) {
 	}
 
 	function init () {
+		var fundSelect = $('[name="fund"]').empty()
+		$.each(funds, function (index, fund) {
+			fundSelect.append($('<option value="' + index + '">' + fund.name + '</option>'))
+		})
+
 		scope.on('submit', function (ev) {
 			ev.preventDefault()
 
@@ -165,9 +180,11 @@ var PensionCalculator = (function (scope) {
 				fund_value = null
 			}
 
+			$.get('/data/getStats', { isin: fund.isin }, function (stats) {
+				console.log(stats)
+			})
+
 			calculate()
 		}).trigger('submit')
 	}
-
-	init()
 })
