@@ -15,8 +15,8 @@
 	{ "name": "SEB Konservatiivne Pensionifond", "isin": "EE3600019717", "type": "Konservatiivne", "fee": 0.7689 },
 	{ "name": "SEB Optimaalne Pensionifond", "isin": "EE3600098612", "type": "Tasakaalustatud", "fee": 1.0521 },
 	{ "name": "SEB Progressiivne Pensionifond", "isin": "EE3600019725", "type": "Progressiivne", "fee": 1.2140 },
-	{ "name": "Swedbank Pensionifond K1 (Konservatiivne strateegia)", "isin": "EE3600019733", "type": "Konservatiivne", "fee": 0.61 },
-	{ "name": "Swedbank Pensionifond K2 (Tasakaalustatud strateegia)", "isin": "EE3600019741", "type": "Tasakaalustatud", "fee": 0.94 },
-	{ "name": "Swedbank Pensionifond K3 (Kasvustrateegia)", "isin": "EE3600019758", "type": "Progressiivne", "fee": 1.00 },
-	{ "name": "Swedbank Pensionifond K4 (Aktsiastrateegia)", "isin": "EE3600103248", "type": "Agressiivne", "fee": 1.00 }
+	{ "name": "Swedbank Pensionifond K1", "description": "(Konservatiivne strateegia)", "isin": "EE3600019733", "type": "Konservatiivne", "fee": 0.61 },
+	{ "name": "Swedbank Pensionifond K2", "description": "(Tasakaalustatud strateegia)", "isin": "EE3600019741", "type": "Tasakaalustatud", "fee": 0.94 },
+	{ "name": "Swedbank Pensionifond K3", "description": "(Kasvustrateegia)", "isin": "EE3600019758", "type": "Progressiivne", "fee": 1.00 },
+	{ "name": "Swedbank Pensionifond K4", "description": "(Aktsiastrateegia)", "isin": "EE3600103248", "type": "Agressiivne", "fee": 1.00 }
 ]
