@@ -42,6 +42,11 @@
     <script src="nv.d3.min.js"></script>
 
     <style>
+        .tabel{
+            padding: 100px,100px,100px,100px;
+            margin: 100px,100px,100px,100px;
+            display: block;
+        }
         .halliks{
             opacity: 0.4;
 
@@ -66,8 +71,7 @@
         }
                 
         .sinine{
-            font: medium;
-            font-size: 110%;
+            font-size: 24px
             background-color: none;
             color: #8e63b0
 
@@ -130,17 +134,17 @@
     <nav class="navbar navbar-default navbar-fixed colorfix">
         <div class="container-fluid">
             <div class="navbar-header colorfix2">
-                <img src="img/LOGOHEADER.svg" alt="tootlus.ee" height="128px"  /></a>
+                <img src="img/LOGO.svg" alt="tootlus.ee" height="60px"  /></a>
             </div>
         </div>
     </nav>
              <div class="header">
-            <h3 class="title">VAATA, MIS HAKKAB OLEMA <span class="sinine">SINU <br> PENSIONI VÄLJAMAKSED</span> TULEVIKUS</h3>
+            <h3 class="title">VAATA, MIS HAKKAB OLEMA <b class="sinine">SINU <br> PENSIONI VÄLJAMAKSED</b> TULEVIKUS</h3>
 
         </div>
            <fieldset class="riba container-fluid">
         
-            <nav class="pull-center">
+            
 
             <form name="registration_form" id='registration_form' class="form-inline calculator">
                     <div class="row">
@@ -191,7 +195,7 @@
 
                     </div>
             </form>
-        </nav>
+     
 
            </fieldset>
 
@@ -254,15 +258,16 @@
         </div>
          </div>
         </div>
-    <div class="content">
+    <div class="container">
         <div class="header">
-            <h4 class="title">Palga kuju</h4>
-            <p class="category">Sinu</p>
+            <h4 class="title">SINU TULEVIKU PALK</h4>
+            <p class="category"></p>
         </div>
-        <div id="chart">
+        <div class="content">
+        <div class="tabel" id="chart" class="tabel">
             <svg></svg>
         </div>
-
+    </div>
     </div>
 
 
