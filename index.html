@@ -42,7 +42,17 @@
     <script src="nv.d3.min.js"></script>
 
     <style>
-        
+        .tootlus_m{
+            color: #2fc3e6
+
+
+        }
+        .tootlus{
+            color: #68c59f
+        }
+        .tootlus_t{
+            color: #9064b2
+        }
         .tabel{
             padding: 100px,100px,100px,100px;
             margin: 100px,100px,100px,100px;
@@ -194,7 +204,8 @@
             <div class="row">
                 <div class="col-md-6 text-right">
 
-                  	<h4 class="title pull-right" style="width:300px">EESTI KESKMINE FOND</h4>
+                  	<h4 class="title pull-right" style="width:300px; padding-bottom:0">EESTI KESKMINE FOND</h4>
+					<h4 class="title pull-right" style="width:300px; margin-bottom:-150px">Sinu pensioni<br>kuumakse</h4>
 
                     <svg id="plain-fund" width="300" height="300"></svg>
 
@@ -216,15 +227,13 @@
 
                <div class="col-md-6">
                     <div class="header">
-						<h4 class="title" style="width:400px">INDEKSIFOND
+						<h4 class="title" style="width:400px; padding-bottom:0">INDEKSIFOND
 
 							<span class="halliks" data-toggle="popover" data-trigger="hover" data-placement="top"
 							data-content="Me võrdleme sinu pensionifondi tootlust Vanguardi indeksifondide omaga. Vastavalt sellele, kas sinu pensionifond on 75%, 50%, 25% või 0% aktsiate osakaaluga">
 							<img src="img/i_sign.svg"></span>
-
-
                         </h4>
-
+						<h4 class="title pull-left" style="width:400px; margin-bottom:-260px">Sinu pensioni <br>kuumakse võiks olla</h4>
 
                         <svg id="index-fund" width="400" height="400"></svg>
                         <p class="category" style="width: 400px">teenustasud
@@ -248,22 +257,32 @@
             <h3 class="title">KESKMISELT FONDI INVESTEERING 1000€ KOHTA</h3>
 
         </div>
+
 		<div class="col-md-6 text-right">
 
         <div class="average" id="graphDiv"></div>
        <!-- mullide keskmine, valikust lähtudes class on vaba-->
         </div>
+       
+                            
 
        <div class="col-md-6">
+        <div class="legend" > <span class="tootlus_m"><b>o</b></span> Tootlusmäär <span class="tootlus"><b>o</b></span>Tootlus <span class="tootlus_t"><b>o</b></span>Teenustasu </div>
         <div class="index" id="graphDiv2"></div>
         <!-- mullide index, indeks  class on vaba-->
+         
         </div>
-         </div>
+
+        
         </div>
+        </br>
+
     <div class="container">
         <div class="header">
             <h4 class="title">PENSIONIKONTO VÄÄRTUSE KASV</h4>
             <p class="category"></p>
+
+         </div>
         </div>
         <div class="content">
         <div class="tabel" id="chart" class="tabel">
@@ -307,14 +326,14 @@
         //else data=data2
 
 		data1 = [
-			{value: 1500, name: "600€",title:"minuRaha", fill: "#68c59f"},
-			{value: 500, name: "50€", title:"sinuRaha", fill: "#9064b2"},
-			{value: 1000, name: "4%", title:"temaRaha", fill: "#2fc3e6"},
+			{value: 1500, name: "600€",title:"tootlus", fill: "#68c59f"},
+			{value: 500, name: "50€", title:"teenustasu", fill: "#9064b2"},
+			{value: 1000, name: "4%", title:"tootlus määr", fill: "#2fc3e6"},
 		],
         data2 = [
-            {value: 500, name: "500€",title:"Raha", fill: "#68c59f"},
-            {value: 250, name: "25€",title:"Raha", fill: "#9064b2"},
-            {value: 700, name: "2%", title:"Raha",fill: "#2fc3e6"},
+            {value: 500, name: "500€",title:"tootlus ", fill: "#68c59f"},
+            {value: 250, name: "25€",title:"teenustasu", fill: "#9064b2"},
+            {value: 700, name: "2%", title:"tootlus määr",fill: "#2fc3e6"},
         ],
 		rVals1 = [];
 		rVals2 = [];
@@ -371,13 +390,6 @@
 
 			}).style("fill", "white");
 
-            node.append("text").text(function(d) { return d.title}).attr({
-              "alignment-baseline": "start",
-              "text-anchor": "start",
-               "x":"20",
-                "y":"40"
-
-            }).style("fill", "grey");
 
 
 			function tick() {
@@ -416,14 +428,7 @@
 				"text-anchor": "middle"
 			}).style("fill", "white");
 
-             node.append("text").text(function(d) { return d.title}).attr({
-              "alignment-baseline": "start",
-              "text-anchor": "start",
-               "x":"20",
-                "y":"40"
-
-            }).style("fill", "grey");
-
+          
 
 			function tick() {
 				node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
