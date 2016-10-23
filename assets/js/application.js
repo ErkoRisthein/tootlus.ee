@@ -18,6 +18,18 @@ $(function () {
 	var fundPlain = loadLiquidFillGauge('plain-fund', 1, gaugeConfig)
 	var fundIndex = loadLiquidFillGauge('index-fund', 1, gaugeConfig)
 
+
+	var chart = nv.models.lineChart()
+
+	chart.xAxis.axisLabel('').tickFormat(d3.format(''))
+
+	chart.yAxis.axisLabel('Pensionifondi suurus (€)').tickFormat(d3.format('.02f'))
+
+	nv.utils.windowResize(chart.update)
+
+	nv.addGraph(chart)
+
+
 	var calc = $('.calculator')
 
 	calc.on('calculator.update', function (ignore, funds) {
@@ -28,6 +40,45 @@ $(function () {
 		fundIndex.update(prec, funds.index.pension)
 	})
 
+	calc.on('calculator.graph', function (ignore, graph) {
+		var data = [{
+			values: graph.plain,
+			key: 'LHV',
+			color: '#ff7f0e'
+		}, {
+			values: graph.index,
+			key: 'Index',
+			color: '#2ca02c'
+		}]
+
+		console.log(chart)
+
+		d3.select('#chart svg').datum(data).transition().duration(500).call(chart)
+	})
+
 	new PensionCalculator(calc)
+
+
+	var data = function() {
+		var sin = [], cos = []
+
+		for (var i = 0; i < 100; i++) {
+			sin.push({x: i, y: Math.sin(i/10)})
+			cos.push({x: i, y: .5 * Math.cos(i/10)})
+		}
+
+		return [{
+			values: [{ x: 2016, y: 6800 }, { x: 2017, y: 7000 }],
+			key: 'LHV',
+			color: '#ff7f0e'
+		}, {
+			values: [{ x: 2016, y: 6900 }, { x: 2017, y: 7200 }],
+			key: 'Index',
+			color: '#2ca02c'
+		}]
+	}
+
+	d3.select('#chart svg').datum(data()).transition().duration(500).call(chart)
+	//d3.select('#chart svg').duration(500).call(chart)
 
 })
