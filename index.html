@@ -413,13 +413,17 @@
 				.attr("r", function(d, i) {return rVals1[i];})
 				.style("fill", function(d) {return d.fill;});
 
-			
+			node.append("text").text(function(d) { return d.name }).attr({
+			  "alignment-baseline": "middle",
+			  "text-anchor": "middle"
+
+			}).style("fill", "white");
 
             node.append("text").text(function(d) { return "MINU RAHA"}).attr({
-              
-              "text-anchor": "end", 
+              "alignment-baseline": "start",
+              "text-anchor": "start", 
                "x":"20",
-                "y":"-40"
+                "y":"40"
               
             }).style("fill", "grey");
 
@@ -455,15 +459,18 @@
 					.attr("r", function(d, i) {return rVals2[i];})
 					.style("fill", function(d) {return d.fill;});
 
-			
-            node.append("text").text(function(d) { return d.name}).attr({
-              
-              "text-anchor": "end", 
+			node.append("text").text(function(d) { return d.name }).attr({
+				"alignment-baseline": "middle",
+				"text-anchor": "middle"
+			}).style("fill", "white");
+
+             node.append("text").text(function(d) { return "MINU RAHA"}).attr({
+              "alignment-baseline": "start",
+              "text-anchor": "start", 
                "x":"20",
-                "y":"-40"
+                "y":"40"
               
             }).style("fill", "grey");
-
 
 
 			function tick() {
