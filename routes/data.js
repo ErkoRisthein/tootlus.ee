@@ -14,7 +14,7 @@ router.get('/getStats', function (req, res, next) {
 		throw new Error('Required parameter missing: "isin".');
 	}
 
-	const fund = getFundDetails(isin);
+	const fund = getFundDetails(req.query.isin);
 
 	if (!fund) {
 		throw new Error('Unknown fund: ' + fund + '.');

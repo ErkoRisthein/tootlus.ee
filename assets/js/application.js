@@ -27,9 +27,13 @@ $(function () {
 
 		var prec = Math.round(funds.index.fees / funds.index.gross * 100)
 		fundIndex.update(prec, funds.index.pension)
+
+		console.log('update',funds)
 	})
 
 	calc.on('calculator.graph', function (ignore, graph) {
+		console.log('graph', graph)
+
 		if (!chart) {
 			chart = nv.models.lineChart()
 
