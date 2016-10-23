@@ -132,6 +132,8 @@ var PensionCalculator = (function (scope) {
 			}
 		}
 
+		result.plain.name = fund.name
+
 		scope.trigger('calculator.graph', result)
 	}
 

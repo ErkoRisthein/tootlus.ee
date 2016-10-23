@@ -34,8 +34,6 @@ $(function () {
 	})
 
 	calc.on('calculator.graph', function (ignore, graph) {
-		console.log('graph', graph)
-
 		if (!chart) {
 			chart = nv.models.lineChart()
 
@@ -50,11 +48,11 @@ $(function () {
 
 		var data = [{
 			values: graph.plain,
-			key: 'LHV',
+			key: graph.plain.name,
 			color: '#ff7f0e'
 		}, {
 			values: graph.index,
-			key: 'Index',
+			key: 'Maailma turu keskmine',
 			color: '#2ca02c'
 		}]
 
