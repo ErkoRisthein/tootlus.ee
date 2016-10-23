@@ -18,18 +18,7 @@ $(function () {
 	var fundPlain = loadLiquidFillGauge('plain-fund', 1, gaugeConfig)
 	var fundIndex = loadLiquidFillGauge('index-fund', 1, gaugeConfig)
 
-
-	var chart = nv.models.lineChart()
-
-	chart.xAxis.axisLabel('').tickFormat(d3.format(''))
-
-	chart.yAxis.axisLabel('Pensionifondi suurus (€)').tickFormat(d3.format('.02f'))
-
-	nv.utils.windowResize(chart.update)
-
-	nv.addGraph(chart)
-
-
+	var chart = null
 	var calc = $('.calculator')
 
 	calc.on('calculator.update', function (ignore, funds) {
@@ -41,6 +30,18 @@ $(function () {
 	})
 
 	calc.on('calculator.graph', function (ignore, graph) {
+		if (!chart) {
+			chart = nv.models.lineChart()
+
+			chart.xAxis.axisLabel('').tickFormat(d3.format(''))
+
+			chart.yAxis.axisLabel('Pensionifondi suurus (€)').tickFormat(d3.format('.02f'))
+
+			nv.utils.windowResize(chart.update)
+
+			nv.addGraph(chart)
+		}
+
 		var data = [{
 			values: graph.plain,
 			key: 'LHV',
@@ -51,13 +52,10 @@ $(function () {
 			color: '#2ca02c'
 		}]
 
-		console.log(chart)
-
 		d3.select('#chart svg').datum(data).transition().duration(500).call(chart)
 	})
 
 	new PensionCalculator(calc)
-
 
 	var data = function() {
 		var sin = [], cos = []
@@ -78,7 +76,5 @@ $(function () {
 		}]
 	}
 
-	d3.select('#chart svg').datum(data()).transition().duration(500).call(chart)
-	//d3.select('#chart svg').duration(500).call(chart)
 
 })
