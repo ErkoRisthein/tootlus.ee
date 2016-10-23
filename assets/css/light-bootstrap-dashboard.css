@@ -2961,10 +2961,10 @@ body > .navbar-collapse[data-color="purple"]:after {
   }
 
   .navbar-header .navbar-toggle {
-    background-color: #2FC3E6
+    background-color: #00c4e8
     margin: 10px 15px 10px 0;
-    width: 60px;
-    height: 40px;
+    height: 128px;
+    
   }
 
   .bar1,
@@ -3368,7 +3368,9 @@ body > .navbar-collapse[data-color="purple"]:after {
   }
 
   .navbar-header {
+    background-color: #00c4e8;
     float: right;
+
   }
 
   .navbar-nav .open .dropdown-menu {
