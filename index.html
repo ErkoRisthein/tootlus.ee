@@ -407,6 +407,7 @@
 				.enter().append("g")
 				.call(force.drag);
 
+
 			// blue circle
 			node.append("circle")
 				.attr("r", function(d, i) {return rVals1[i];})
@@ -415,8 +416,16 @@
 			node.append("text").text(function(d) { return d.name }).attr({
 			  "alignment-baseline": "middle",
 			  "text-anchor": "middle"
+
 			}).style("fill", "white");
 
+            node.append("text").text(function(d) { return d.name}).attr({
+              
+              "text-anchor": "end", 
+               "x":"20",
+                "y":"-40"
+              
+            }).style("fill", "grey");
 
 
 			function tick() {
@@ -451,9 +460,11 @@
 					.style("fill", function(d) {return d.fill;});
 
 			node.append("text").text(function(d) { return d.name }).attr({
-				"alignment-baseline": "middle",
-				"text-anchor": "middle"
-			}).style("fill", "white");
+				
+              "text-anchor": "end", 
+               "x":"20",
+                "y":"-40"
+			}).style("fill", "grey");
 
 
 
