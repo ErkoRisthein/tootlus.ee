@@ -42,6 +42,16 @@
     <script src="nv.d3.min.js"></script>
 
     <style>
+        .halliks{
+            opacity: 0.4;
+
+        }
+
+        .keskele{
+            padding: 0;
+            float: right;
+            text-align: right;
+        }
         .colorfix{
             background-color: #ffffff;
             opacity: 1;
@@ -190,23 +200,23 @@
             <div class="row">
                 <div class="col-md-6 text-right">
 
-                    <div class="header" style="width 300px">
+                    <div class="header" style="width 300px"class="keskele">
                         <h4 class="title">EESTI KESKMINE FOND</h4>
                     </div>
 
                     <svg id="plain-fund" width="300" height="300"></svg>
-                    <p class="category">teenustasud
-						<span data-toggle="popover" data-trigger="hover" data-placement="top" 
+                    <p class="category"class="keskele">teenustasud
+						<span class="halliks" data-toggle="popover" data-trigger="hover" data-placement="top" 
 								data-content="dsa">
 								<img src="img/i_sign.svg"></span>
 					</p>
                 </div>
 
                <div class="col-md-6">
-                    <div class="header">
+                    <div class="header"class="keskele">
                         <h4 class="title">INDEXIFOND
 
-							<span data-toggle="popover" data-trigger="hover" data-placement="top" 
+							<span class="halliks" data-toggle="popover" data-trigger="hover" data-placement="top" 
 							data-content="Me võrdleme sinu pensionifondi tootlust Vanguardi indeksifondide omaga. Vastavalt sellele, kas sinu pensionifond on 75%, 50%, 25% või 0% aktsiate osakaaluga">
 							<img src="img/i_sign.svg"></span>
                           
@@ -215,8 +225,8 @@
 
 
                         <svg id="index-fund" width="400" height="400"></svg>
-                        <p class="category">teenustasud
-                         <span data-toggle="popover" data-trigger="hover" data-placement="top" 
+                        <p class="category"class="keskele">teenustasud
+                         <span class="halliks" data-toggle="popover" data-trigger="hover" data-placement="top" 
 							data-content="asdfg">
 							<img src="img/i_sign.svg"></span>
                         </p>
@@ -415,7 +425,7 @@
 		rCalculation();
 		drawGraph();
 	</script>
-	
+	<!-- info nupu float-->
 	<script>
 		$(function () {
 		  $('[data-toggle="popover"]').popover()
