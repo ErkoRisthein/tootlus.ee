@@ -45,9 +45,9 @@ var PensionCalculator = (function (scope) {
 	function calculate () {
 		var result = {}
 
-		for (var type in fund)
+		for (var type in fund) {
 			result[type] = {}
-
+		}
 
 		var years_contributed = age - opts.age_started
 
@@ -55,7 +55,6 @@ var PensionCalculator = (function (scope) {
 
 		var annual_contrib = past_income * (opts.contrib / 100) * 12
 
-		// siia ka
 		for (var type in fund) {
 			var af_net = annuity_factor(fund[type].yield, opts.income_increase, years_contributed)
 			var af_gross = annuity_factor(fund[type].yield + fund[type].fees, opts.income_increase, years_contributed)
@@ -65,9 +64,6 @@ var PensionCalculator = (function (scope) {
 		}
 
 		if (fund_value) {
-			// mida vittu
-			// siia peab miskit kirjutama
-
 			var diff = result.plain.net / fund_value
 
 			for (var type in fund) {
@@ -75,6 +71,8 @@ var PensionCalculator = (function (scope) {
 				result[type].gross /= diff
 			}
 		}
+
+		graph(result)
 
 		var annual_contrib = income * (opts.contrib / 100) * 12
 
@@ -100,6 +98,32 @@ var PensionCalculator = (function (scope) {
 		}
 
 		scope.trigger('calculator.update', result)
+	}
+
+	function graph (pot) {
+		var result = {}
+
+		var year = (new Date()).getFullYear()
+		var years_left = opts.retire - age
+
+		var annual_contrib = income * (opts.contrib / 100) * 12
+
+		for (var type in fund) {
+			result[type] = []
+
+			for (var n = 0; n <= years_left; n++) {
+
+				var net = future_value(fund[type].yield, pot[type].net, n)
+				var af = annuity_factor(fund[type].yield, opts.income_increase, n)
+
+				result[type].push({
+					x: year + n,
+					y: net + annual_contrib * af
+				})
+			}
+		}
+
+		scope.trigger('calculator.graph', result)
 	}
 
 	// r - interest rate %
