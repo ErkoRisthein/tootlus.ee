@@ -1,0 +1,22 @@
+[
+	{ "name": "LHV Pensionifond 25", "isin": "EE3600019790", "type": "Tasakaalustatud", "fee": 1.35 },
+	{ "name": "LHV Pensionifond 50", "isin": "EE3600019808", "type": "Progressiivne", "fee": 1.72 },
+	{ "name": "LHV Pensionifond Intress", "isin": "EE3600019816", "type": "Konservatiivne", "fee": 0.65 },
+	{ "name": "LHV Pensionifond L", "isin": "EE3600019832", "type": "Progressiivne", "fee": 1.59480 },
+	{ "name": "LHV Pensionifond M", "isin": "EE3600019774", "type": "Tasakaalustatud", "fee": 1.27584 },
+	{ "name": "LHV Pensionifond S", "isin": "EE3600019824", "type": "Konservatiivne", "fee": 0.95688 },
+	{ "name": "LHV Pensionifond XL", "isin": "EE3600019766", "type": "Agressiivne", "fee": 1.59480 },
+	{ "name": "LHV Pensionifond XS", "isin": "EE3600019782", "type": "Konservatiivne", "fee": 0.71766 },
+	{ "name": "Nordea Pensionifond A", "isin": "EE3600098430", "type": "Progressiivne", "fee": 1.50 },
+	{ "name": "Nordea Pensionifond A Pluss", "isin": "EE3600103503", "type": "Agressiivne", "fee": 1.59 },
+	{ "name": "Nordea Pensionifond B", "isin": "EE3600098448", "type": "Tasakaalustatud", "fee": 1.40 },
+	{ "name": "Nordea Pensionifond C", "isin": "EE3600098455", "type": "Konservatiivne", "fee": 0.84 },
+	{ "name": "SEB Energiline Pensionifond", "isin": "EE3600103297", "type": "Agressiivne", "fee": 1.3759 },
+	{ "name": "SEB Konservatiivne Pensionifond", "isin": "EE3600019717", "type": "Konservatiivne", "fee": 0.7689 },
+	{ "name": "SEB Optimaalne Pensionifond", "isin": "EE3600098612", "type": "Tasakaalustatud", "fee": 1.0521 },
+	{ "name": "SEB Progressiivne Pensionifond", "isin": "EE3600019725", "type": "Progressiivne", "fee": 1.2140 },
+	{ "name": "Swedbank Pensionifond K1 (Konservatiivne strateegia)", "isin": "EE3600019733", "type": "Konservatiivne", "fee": 0.61 },
+	{ "name": "Swedbank Pensionifond K2 (Tasakaalustatud strateegia)", "isin": "EE3600019741", "type": "Tasakaalustatud", "fee": 0.94 },
+	{ "name": "Swedbank Pensionifond K3 (Kasvustrateegia)", "isin": "EE3600019758", "type": "Progressiivne", "fee": 1.00 },
+	{ "name": "Swedbank Pensionifond K4 (Aktsiastrateegia)", "isin": "EE3600103248", "type": "Agressiivne", "fee": 1.00 }
+]
