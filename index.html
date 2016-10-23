@@ -42,16 +42,10 @@
     <script src="nv.d3.min.js"></script>
 
     <style>
-
-    img {
-          vertical-align: middle;
-        }
         .tootlus_m{
-            color: #2fc3e6
-            font-size:30em;
-
-
-
+            color: #2fc3e6;
+			font-size:3em;
+			vertical-align:-10px;
         }
         .legend{
             text-align: center;
@@ -59,10 +53,14 @@
 
         }
         .tootlus{
-            color: #68c59f
+            color: #68c59f;
+			font-size:3em;
+			vertical-align:-10px;
         }
         .tootlus_t{
-            color: #9064b2
+            color: #9064b2;
+			font-size:3em;
+			vertical-align:-10px;
         }
         .tabel{
             padding: 100px,100px,100px,100px;
@@ -71,8 +69,7 @@
         }
         .halliks{
             opacity: 0.4;
-            vertical-align: middle;
-
+			vertical-align:-4px;
         }
 
 
@@ -137,6 +134,10 @@
             top:1px;
         }
 
+		.calculator input {
+			min-width: inherit;
+		}
+
     </style>
 
 
@@ -188,10 +189,10 @@
                                    title=" number"
                                    placeholder="VALIKULINE"/>
                         </div>
-                        <div class="form-group col-xs-2 ">
+                        <div class="form-group col-xs-3">
                             <label for="fund-value" class="sr-only"></label>
                             MINU FOND   <br>
-                            <select name="fund" id="fund-value" class="form-control input-group-lg reg_name">
+                            <select name="fund" id="fund-value" style="width: 100%" class="form-control input-group-lg reg_name">
 								<option value="lhv">LHV</option>
 								<option value="tuleva">Nordea</option>
                                 <option value="tuleva">SEB</option>
@@ -221,36 +222,36 @@
 
                     <svg id="plain-fund" width="300" height="300"></svg>
 
-                    <p class="category pull-right" style="width:300px">teenustasud
+                    <h4 class="category pull-right" style="width:300px; padding-bottom:0; margin: 0;">TEENUSTASUDEKS <br>MAKSTUD
 						<span data-toggle="popover" data-trigger="hover" data-placement="top"
 								data-content="Väljalasketasu – osakute väljalaskmisel fondivalitseja poolt võetav teenustasu.
                                 Tagasivõtmistasu – osakute lunastamisel (fondivalitseja poolt tagasi võtmisel) fondivalitseja poolt võetav teenustasu.
                                 Valitsemistasu – tasu pensionifondivalitsejale pensionifondi valitsemise eest. Valitsemistasu ei too osakuomanikule kaasa täiendavaid rahalisi arveldusi, vaid selle võrra väheneb osaku puhasväärtus (NAV)">
-								<img class="halliks"src="img/i_sign.svg">
+								<img class="halliks" src="img/i_sign.svg">
 
 
                             </span>
-					</p>
-                     <p class="category pull-right fund-plain-fees" style="width:300px"></p>
+					</h4>
+                     <p class="category pull-right fund-plain-fees" style="width:300px; font-size: 36px; color:#9064b2;">40 000€</p>
                 </div>
 
                <div class="col-md-6">
                     <div class="header">
-						<h4 class="title" style="width:400px; padding-bottom:0">INDEKSIFOND
+						<h4 class="title" style="width:400px; padding-bottom:0">MAAILMATURU KESKMINE
 
-						<span class="halliks" data-toggle="popover" data-trigger="hover" data-placement="top"
+							<span data-toggle="popover" data-trigger="hover" data-placement="top"
 							data-content=" Valitsemistasu – tasu pensionifondivalitsejale pensionifondi valitsemise eest. Valitsemistasu ei too osakuomanikule kaasa täiendavaid rahalisi arveldusi, vaid selle võrra väheneb osaku puhasväärtus (NAV)">
-							<img src="img/i_sign.svg"></span>
+							<img class="halliks" src="img/i_sign.svg"></span>
                         </h4>
 						<h4 class="title pull-left" style="width:400px; margin-bottom:-260px">Sinu pensioni <br>kuumakse võiks olla</h4>
 
                         <svg id="index-fund" width="400" height="400"></svg>
-                        <p class="category" style="width: 400px" style=" vertical-align: middle">teenustasud
-                         <span class="halliks" data-toggle="popover" data-trigger="hover" data-placement="top"
+                        <h4 class="category" style="width: 400px;padding-bottom:0; margin: 0;">TEENUSTASUDEKS <br>MAKSTUD
+                         <span data-toggle="popover" data-trigger="hover" data-placement="top"
 							data-content=" Keskimise Euroopa investorile kättesaadava indeksifondi valitsemistasu">
-							<img src="img/i_sign.svg"></span>
-                        </p>
-                        <p class="category fund-index-fees" style="width:400px"></p>
+							<img class="halliks" src="img/i_sign.svg"></span>
+                        </h4>
+                        <p class="category fund-index-fees" style="width:400px; font-size: 36px; color:#9064b2;">12 000€</p>
                     </div>
                 </div>
             </div>
@@ -259,9 +260,10 @@
     </div>
     <div class="content">
 
+		<hr>
+
         <div class="header">
-            <h3 class="title">KESKMISELT FONDI INVESTEERING 1000€ KOHTA</h3>
-            <div class="legend" > <span class="tootlus_m"><b>&nbsp;&nbsp;o</b></span> Tootlusmäär <span class="tootlus"><b>&nbsp;&nbsp;o</b></span>Tootlus <span class="tootlus_t"><b>&nbsp;&nbsp;o</b></span>Teenustasu </div>
+            <h3 class="title" style="padding-bottom:0">KESKMISELT FONDI INVESTEERING 1000€ KOHTA</h3>
         </div>
 
 		<div class="col-md-6 text-right">
@@ -281,7 +283,24 @@
 
 
         </div>
-        </br>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 text-right">
+					<h4 class="title pull-right selected-fund-name" style="width:600px; padding-bottom:0; margin:0">EESTI KESKMINE FOND</h4>
+				</div>
+
+				<div class="col-md-6">
+					<div class="header">
+						<h4 class="title" style="width:600px; padding-bottom:0; margin:0">MAAILMATURU KESKMINE</h4>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="legend" > <span class="tootlus_m"><b>&nbsp;&nbsp;&bull;</b></span> Tootlusmäär <span class="tootlus"><b>&nbsp;&nbsp;&bull;</b></span> Tootlus <span class="tootlus_t"><b>&nbsp;&nbsp;&bull;</b></span> Teenustasu </div>
+		<br>
+
+		<hr>
 
     <div class="container">
         <div class="header">
@@ -326,20 +345,20 @@
 
 <!--- järgnev graafika on alumine  PALLID-->
 	<script>
-		var width = 250,
-		height = 250,
+		var width = 600,
+		height = 500,
     // if  #graphDiv in chart: data =data 1
         //else data=data2
 
 		data1 = [
-			{value: 1500, name: "600€",title:"tootlus", fill: "#68c59f"},
-			{value: 500, name: "50€", title:"teenustasu", fill: "#9064b2"},
-			{value: 1000, name: "4%", title:"tootlus määr", fill: "#2fc3e6"},
+			{value: 13000, name: "600€",title:"tootlus", fill: "#68c59f"},
+			{value: 4000, name: "50€", title:"teenustasu", fill: "#9064b2"},
+			{value: 8000, name: "4%", title:"tootlus määr", fill: "#2fc3e6"},
 		],
         data2 = [
-            {value: 500, name: "500€",title:"tootlus ", fill: "#68c59f"},
-            {value: 250, name: "25€",title:"teenustasu", fill: "#9064b2"},
-            {value: 700, name: "2%", title:"tootlus määr",fill: "#2fc3e6"},
+            {value: 4000, name: "500€",title:"tootlus ", fill: "#68c59f"},
+            {value: 2000, name: "25€",title:"teenustasu", fill: "#9064b2"},
+            {value: 6000, name: "2%", title:"tootlus määr",fill: "#2fc3e6"},
         ],
 		rVals1 = [];
 		rVals2 = [];
@@ -374,7 +393,7 @@
 				.nodes(data1)
 				.size([width, height])
 				.linkDistance(10)
-				.charge(function(d, i) {return rVals1[i]*(-5);})
+				.charge(function(d, i) {return rVals1[i]*(-15);})
 				.on("tick", tick)
 				.start();
 
@@ -394,7 +413,7 @@
 			  "alignment-baseline": "middle",
 			  "text-anchor": "middle"
 
-			}).style("fill", "white");
+			}).style("fill", "white").style("font-size","34px");
 
 
 
@@ -414,7 +433,7 @@
 					.nodes(data2)
 					.size([width, height])
 					.linkDistance(10)
-					.charge(function(d, i) {return rVals2[i]*(-5);})
+					.charge(function(d, i) {return rVals2[i]*(-15);})
 					.on("tick", tick)
 					.start();
 
@@ -432,7 +451,7 @@
 			node.append("text").text(function(d) { return d.name }).attr({
 				"alignment-baseline": "middle",
 				"text-anchor": "middle"
-			}).style("fill", "white");
+			}).style("fill", "white").style("font-size","34px");
 
 
 
