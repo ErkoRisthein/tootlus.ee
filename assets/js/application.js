@@ -10,7 +10,7 @@ $(function () {
 		textVertPosition: 0.5,
 		waveAnimateTime: 1000,
 		minValue: 0,
-		maxValue: 1000,
+		maxValue: 100,
 	}
 
 	var gaugeConfig = $.extend({}, liquidFillGaugeDefaultSettings(), _gauge_defaults)
