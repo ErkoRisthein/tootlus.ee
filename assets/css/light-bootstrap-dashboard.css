@@ -2961,7 +2961,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   }
 
   .navbar-header .navbar-toggle {
-    background-color: #00c4e8
+    background-color: #fff
     margin: 10px 15px 10px 0;
     height: 128px;
     
@@ -3368,7 +3368,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   }
 
   .navbar-header {
-    background-color: #00c4e8;
+    background-color: #fff;
     float: right;
 
   }
