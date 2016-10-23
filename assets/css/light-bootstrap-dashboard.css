@@ -33,9 +33,7 @@
 }
 /*  
          Font Smoothing      */
-fieldset.riba{
-  padding-left:200px; 
-}
+
 body,
 
 h1, .h1,
@@ -3368,7 +3366,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   }
 
   .navbar-header {
-    float: none;
+    float: right;
   }
 
   .navbar-nav .open .dropdown-menu {

@@ -42,8 +42,11 @@
     <script src="nv.d3.min.js"></script>
 
     <style>
-      
-        
+        fieldset.riba{
+          float:right; 
+          display: block;
+        }
+                
 
         .btn-info {
                
@@ -162,7 +165,9 @@
         </div>
     </nav>
 
-           <fieldset class="riba">
+           <fieldset class="riba container-fluid">
+        
+            <nav class="pull-center">
 
             <form name="registration_form" id='registration_form' class="form-inline calculator">
                     <div class="row">
@@ -213,6 +218,7 @@
 
                     </div>
             </form>
+        </nav>
 
            </fieldset>
 
@@ -233,7 +239,7 @@
                     <div class="header">
                         <h4 class="title">INDEXIFOND
                             <div class="dropdown">
-                              <button onclick="myFunction()" class="dropbtn btn-info"><img src="img/i_sign.svg">
+                              <button onclick="myFunction()" class="dropbtn btn-info "><img src="img/i_sign.svg">
                                 </button>
                               <div id="myDropdown1" class="dropdown1-content">
                                <p class="lisainfo"> Me võrdleme sinu pensionifondi tootlust Vanguardi indeksifondide omaga. Vastavalt sellele, kas sinu pensionifond on 75%, 50%, 25% või 0% aktsiate osakaaluga</p>
@@ -286,31 +292,12 @@
 
     <footer class="footer">
         <div class="container-fluid">
-            <nav class="pull-left">
-                <ul>
-                    <li>
-                        <a href="#">
-                                Home
-                            </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                                Company
-                            </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                                Portfolio
-                            </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                               Blog
-                            </a>
-                    </li>
-                </ul>
+            <nav class="pull-center">
+                
+                <img src="img/FOOTER.svg" alt="tootlus.ee" height="128px" /></a>
+           
             </nav>
-            <p class="copyright pull-right">
+            <p class="copyright pull-center">
                 &copy; 2016 <a href="tootlus.ee">tootlus.ee</a>, panusta oma tulevikku ise
             </p>
         </div>
