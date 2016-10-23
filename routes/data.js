@@ -20,7 +20,7 @@ router.get('/getStats', function (req, res, next) {
 		throw new Error('Unknown fund: ' + fund + '.');
 	}
 
-	const fee = parseFloat(req.query.fee) || fund.fee;
+	const fee = parseFloat(req.query.fee) || (fund.fee / 100);
 
 	return api.getStats(req.query.isin, fee)
 		.then(result => res.send(result))
