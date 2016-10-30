@@ -3,7 +3,7 @@ const router = express.Router();
 const api = require('../lib/dataApi');
 const _ = require('lodash');
 
-const funds = require('../funds');
+const funds = require('../public/funds');
 
 const getFundDetails = _.memoize(isin => {
 	return _.find(funds, { isin: isin });
