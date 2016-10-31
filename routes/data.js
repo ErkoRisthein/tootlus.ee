@@ -22,6 +22,12 @@ router.get('/getStats', function (req, res, next) {
 
 	const fee = parseFloat(req.query.fee) || (fund.fee / 100);
 
+	return res.send({
+		r: [0.024],
+		profitPerCf1000: [4600],
+		feePerCf1000: [3423],
+	})
+
 	return api.getStats(req.query.isin, fee)
 		.then(result => res.send(result))
 		.catch(next);
@@ -35,6 +41,12 @@ router.get('/getComparison', function (req, res, next) {
 	const fee = parseFloat(req.query.fee) || 0.003;
 	let indexRatio = parseFloat(req.query.indexRatio);
 	if (!_.isFinite(indexRatio)) indexRatio = 0.5;
+
+	return res.send({
+		profitPerCf1000: [4600],
+		feePerCf1000: [3423],
+		r: [0.042]
+	})
 
 	return api.getComparison(req.query.isin, indexRatio, fee)
 		.then(result => res.send(result))

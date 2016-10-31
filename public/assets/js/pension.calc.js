@@ -188,7 +188,7 @@ var PensionCalculator = (function (scope) {
 				fund_value = null
 			}
 
-			$.get('/data/getStats', { isin: fund.isin }, function (json, error	) {
+			$.get('/data/getStats', { isin: fund.isin }, function (json) {
 				fund_stats = json
 
 				var indexRatio = null

@@ -1,5 +1,7 @@
 $(function () {
 
+	$('[data-toggle="popover"]').popover()
+
 	var _gauge_defaults = {
 		circleColor: "#886EB1",
 		textColor: "#30C3E6",
@@ -77,7 +79,6 @@ $(function () {
 	calc.on('calculator.comparison', function (ignore, data) {
 		// Tootlus
 		data1[0].name = Math.round(data.plain.profitPerCf1000[0]) + '€'
-		//data1[0].value = getSize(data.plain.profitPerCf1000[0])
 		data2[0].name = Math.round(data.index.profitPerCf1000[0]) + '€'
 
 		// Teenustasu
@@ -88,31 +89,93 @@ $(function () {
 		data1[2].name = (data.plain.r[0] * 100).toFixed(2) + '%'
 		data2[2].name = (data.index.r[0] * 100).toFixed(2) + '%'
 
-		/*
-		data1 = [
-			{value: 13000, name: "600€",title:"tootlus", fill: "#68c59f"},
-			{value: 4000, name: "50€", title:"teenustasu", fill: "#9064b2"},
-			{value: 8000, name: "4%", title:"tootlus määr", fill: "#2fc3e6"},
-		],
-        data2 = [
-            {value: 4000, name: "500€",title:"tootlus ", fill: "#68c59f"},
-            {value: 2000, name: "25€",title:"teenustasu", fill: "#9064b2"},
-            {value: 6000, name: "2%", title:"tootlus määr",fill: "#2fc3e6"},
-        ],
-        */
+		d3.select('#graphDiv').html('')
+		d3.select('#graphDiv2').html('')
 
-        d3.select('#graphDiv').html('')
-        d3.select('#graphDiv2').html('')
+		var rVals = rCalculation(data1);
+		drawGraph('#graphDiv', 600, 500, data1, rVals);
 
-		rCalculation1();
-		drawGraph1();
-		rCalculation2();
-		drawGraph2();
+		var rVals = rCalculation(data2);
+		drawGraph('#graphDiv2', 600, 500, data2, rVals);
 	})
 
 	new PensionCalculator(calc)
 
 	function format(n) {
-    	return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+		return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 	}
+
+	// calculate r of each item so that area scales to value
+	function rCalculation (data) {
+		var i, rVals = [];
+
+		for (i = 0; i < data.length; i += 1) {
+			rVals.push(Math.sqrt(data[i].value / Math.PI)*2);
+		}
+
+		return rVals;
+	}
+
+	function drawGraph (el, width, height, nodes, rVals) {
+		//create chart
+		var chart = d3.select(el).append('svg')
+			.attr('width', width)
+			.attr('height', height);
+
+		//create force layout
+		var force = d3.layout.force()
+			.nodes(nodes)
+			.size([width, height])
+			.linkDistance(10)
+			.charge(function (d, i) {
+				return rVals[i] * (-15);
+			})
+			.on("tick", tick)
+			.start();
+
+		var node = chart.selectAll(".node")
+			.data(force.nodes())
+			.attr("class", "node")
+			.enter().append("g")
+			.call(force.drag);
+
+		node.append("circle")
+			.attr("r", function (d, i) {
+				return rVals[i];
+			})
+			.style("fill", function (d) {
+				return d.fill;
+			});
+
+		node.append("text")
+			.text(function (d) {
+				return d.name
+			})
+			.attr({
+			  "alignment-baseline": "middle",
+			  "text-anchor": "middle"
+			})
+			.style("fill", "white")
+			.style("font-size","34px");
+
+
+		function tick() {
+			node.attr("transform", function (d) {
+				return "translate(" + d.x + "," + d.y + ")";
+			});
+		}
+	}
+
+	var data1 = [
+		{ value: 4000, name: "600€",title:"tootlus", fill: "#68c59f"},
+		{ value: 4000, name: "50€", title:"teenustasu", fill: "#9064b2"},
+		{ value: 6000, name: "4%", title:"tootlus määr", fill: "#2fc3e6"},
+	];
+
+	var data2 = [
+		{value: 13000, name: "500€",title:"tootlus ", fill: "#68c59f"},
+		{value: 2000, name: "25€",title:"teenustasu", fill: "#9064b2"},
+		{value: 8000, name: "2%", title:"tootlus määr",fill: "#2fc3e6"},
+	];
+
 })
